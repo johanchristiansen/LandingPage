@@ -1,5 +1,8 @@
 import { Camera, Play } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
+import AnimateOnScroll from '../../design-system/components/AnimateOnScroll';
+import MotionAnimateOnScroll from '../../design-system/components/MotionAnimateOnScroll';
+import Staggered from '../../design-system/components/Staggered';
 
 export function HeroSection() {
   return (
@@ -13,25 +16,31 @@ export function HeroSection() {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-center">
           {/* Left Side - Typography */}
           <div className="space-y-8">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#06b6d4]/30 bg-[#06b6d4]/5 backdrop-blur-sm">
-              <div className="w-2 h-2 rounded-full bg-[#06b6d4] animate-pulse shadow-lg shadow-[#06b6d4]/50"></div>
-              <span className="text-sm text-[#06b6d4] font-mono">S.T.S Labs</span>
-            </div>
-            
-            <h1 className="text-5xl lg:text-7xl tracking-tight text-[#e2e8f0] leading-tight">
-              Turn Cameras into{' '}
-              <span className="text-[#06b6d4] relative inline-block">
-                Intelligent Assets
-                <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-[#06b6d4]/50 to-transparent rounded-full"></div>
-              </span>
-            </h1>
-            
-            <p className="text-lg text-slate-400 max-w-xl leading-relaxed">
-              Enterprise-grade AIoT and Computer Vision solutions. Local processing, 
-              real-time analytics, zero cloud dependency.
-            </p>
-            
-            <div className="flex flex-wrap gap-4">
+            <AnimateOnScroll animation="fade-up">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#06b6d4]/30 bg-[#06b6d4]/5 backdrop-blur-sm">
+                <div className="w-2 h-2 rounded-full bg-[#06b6d4] animate-pulse shadow-lg shadow-[#06b6d4]/50"></div>
+                <span className="text-sm text-[#06b6d4] font-mono">S.T.S Labs</span>
+              </div>
+            </AnimateOnScroll>
+
+            <AnimateOnScroll animation="fade-up" delay={80}>
+              <h1 className="text-5xl lg:text-7xl tracking-tight text-[#e2e8f0] leading-tight">
+                Turn Cameras into{' '}
+                <span className="text-[#06b6d4] relative inline-block">
+                  Intelligent Assets
+                  <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-[#06b6d4]/50 to-transparent rounded-full"></div>
+                </span>
+              </h1>
+            </AnimateOnScroll>
+
+            <AnimateOnScroll animation="fade-up" delay={160}>
+              <p className="text-lg text-slate-400 max-w-xl leading-relaxed">
+                Enterprise-grade AIoT and Computer Vision solutions. Local processing, 
+                real-time analytics, zero cloud dependency.
+              </p>
+            </AnimateOnScroll>
+
+            <Staggered className="flex flex-wrap gap-4" delay={120}>
               <button className="px-8 py-3 rounded-lg bg-gradient-to-r from-[#06b6d4] to-[#0891b2] hover:shadow-lg hover:shadow-[#06b6d4]/25 text-slate-950 transition-all duration-300 font-medium transform hover:scale-105">
                 Get Started
               </button>
@@ -39,10 +48,10 @@ export function HeroSection() {
                 <Play className="w-4 h-4" />
                 Watch Demo
               </button>
-            </div>
-            
+            </Staggered>
+
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-8 pt-8 border-t border-slate-800/50">
+            <Staggered className="grid grid-cols-3 gap-8 pt-8 border-t border-slate-800/50" delay={140}>
               <div>
                 <div className="text-2xl text-[#06b6d4] font-mono">99.9%</div>
                 <div className="text-sm text-slate-500">Uptime</div>
@@ -55,12 +64,13 @@ export function HeroSection() {
                 <div className="text-2xl text-[#06b6d4] font-mono">100%</div>
                 <div className="text-sm text-slate-500">On-Prem</div>
               </div>
-            </div>
+            </Staggered>
           </div>
           
           {/* Right Side - Video Feed Placeholder */}
           <div className="relative">
-            <div className="relative aspect-[4/3] rounded-2xl bg-slate-900/50 border border-slate-800/50 overflow-hidden backdrop-blur-sm shadow-2xl">
+            <MotionAnimateOnScroll animation="fade-left" className="relative" delay={120}>
+              <div className="relative aspect-[4/3] rounded-2xl bg-slate-900/50 border border-slate-800/50 overflow-hidden backdrop-blur-sm shadow-2xl">
               {/* Video feed background */}
               <ImageWithFallback 
                 src="https://images.unsplash.com/photo-1647356191320-d7a1f80ca777?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxuZXVyYWwlMjBuZXR3b3JrJTIwZGF0YSUyMHZpc3VhbGl6YXRpb24lMjBkYXJrfGVufDF8fHx8MTc2NzYwMjk5M3ww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
@@ -110,7 +120,8 @@ export function HeroSection() {
                 <div className="w-2 h-2 rounded-full bg-[#06b6d4] animate-pulse shadow-lg shadow-[#06b6d4]/50"></div>
                 <span className="text-xs text-[#06b6d4] font-mono">PROCESSING</span>
               </div>
-            </div>
+              </div>
+            </MotionAnimateOnScroll>
             
             {/* Decorative elements */}
             <div className="absolute -bottom-8 -right-8 w-48 h-48 bg-[#06b6d4]/5 rounded-full blur-3xl -z-10"></div>

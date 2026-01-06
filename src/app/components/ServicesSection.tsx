@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Radio, Camera, Code, ChevronRight } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
+import Section from '../../design-system/Section';
 
 export function ServicesSection() {
   const [activeTab, setActiveTab] = useState(0);
@@ -65,7 +66,10 @@ export function ServicesSection() {
       <div className="absolute top-1/4 right-1/4 w-[400px] h-[400px] bg-[#f59e0b]/5 rounded-full blur-[120px] -z-10"></div>
       
       <div className="container mx-auto px-6 lg:px-12">
-        <div className="max-w-2xl mb-16">
+        {/* Section wrapper provides consistent animation per section */}
+        {/* Using Section with stagger to reveal internal elements */}
+        
+        <Section stagger className="max-w-2xl mb-16">
           <h2 className="text-4xl lg:text-5xl mb-4 text-[#e2e8f0]">
             What we <span className="text-[#06b6d4] relative inline-block">
               build
@@ -75,10 +79,11 @@ export function ServicesSection() {
           <p className="text-lg text-slate-400">
             Three core solutions. Endless possibilities.
           </p>
-        </div>
+        </Section>
         
         {/* Tabs */}
-        <div className="flex flex-wrap gap-4 mb-12">
+        <Section animation="fade-up" className="flex flex-wrap gap-4 mb-12">
+          <div className="flex flex-wrap gap-4 mb-12">
           {services.map((service, index) => {
             const ServiceIcon = service.icon;
             return (
@@ -96,10 +101,12 @@ export function ServicesSection() {
               </button>
             );
           })}
-        </div>
+          </div>
+        </Section>
         
         {/* Content */}
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <Section animation="fade-up">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left - Details */}
           <div className="space-y-8">
             <div>
@@ -176,7 +183,8 @@ export function ServicesSection() {
             {/* Decorative glow */}
             <div className="absolute -top-8 -right-8 w-48 h-48 bg-[#06b6d4]/10 rounded-full blur-3xl -z-10"></div>
           </div>
-        </div>
+            </div>
+          </Section>
       </div>
     </section>
   );

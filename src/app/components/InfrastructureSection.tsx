@@ -1,5 +1,6 @@
 import { Server, Cpu, HardDrive, Shield, Zap, Lock } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
+import Section from '../../design-system/Section';
 
 export function InfrastructureSection() {
   const specs = [
@@ -44,7 +45,7 @@ export function InfrastructureSection() {
       <div className="absolute top-1/3 left-1/3 w-[350px] h-[350px] bg-[#06b6d4]/5 rounded-full blur-[100px] -z-10"></div>
       
       <div className="container mx-auto px-6 lg:px-12">
-        <div className="max-w-2xl mb-16">
+        <Section stagger className="max-w-2xl mb-16">
           <h2 className="text-4xl lg:text-5xl mb-4 text-[#e2e8f0]">
             Built on <span className="text-[#06b6d4] relative inline-block">
               bare metal
@@ -54,9 +55,10 @@ export function InfrastructureSection() {
           <p className="text-lg text-slate-400">
             Enterprise-grade hardware. On-premise processing. Your data, your control.
           </p>
-        </div>
+        </Section>
         
-        <div className="grid lg:grid-cols-2 gap-12 mb-16">
+        <Section animation="fade-up">
+          <div className="grid lg:grid-cols-2 gap-12 mb-16">
           {/* Left - Server Visualization */}
           <div className="relative">
             <div className="aspect-[4/3] rounded-2xl bg-slate-900/50 border border-slate-800/50 overflow-hidden backdrop-blur-sm shadow-2xl">
@@ -152,7 +154,8 @@ export function InfrastructureSection() {
               </div>
             </div>
           </div>
-        </div>
+          </div>
+        </Section>
         
         {/* Advantages Grid */}
         <div className="grid md:grid-cols-3 gap-6">

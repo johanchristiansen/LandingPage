@@ -1,4 +1,5 @@
 import { Activity, Mail, Github, Linkedin } from 'lucide-react';
+import Section from '../../design-system/Section';
 
 export function Footer() {
   return (
@@ -7,7 +8,8 @@ export function Footer() {
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[500px] h-[200px] bg-[#06b6d4]/5 rounded-full blur-[100px] -z-10"></div>
       
       <div className="container mx-auto px-6 lg:px-12">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+        <Section animation="fade-up" stagger>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
           <div className="space-y-4">
             <div className="text-2xl tracking-tight">
@@ -112,7 +114,8 @@ export function Footer() {
               </div>
             </div>
           </div>
-        </div>
+          </div>
+        </Section>
         
         {/* Bottom bar */}
         <div className="pt-8 border-t border-slate-800/50 flex flex-col sm:flex-row justify-between items-center gap-4">

@@ -1,4 +1,5 @@
 import { CloudOff, EyeOff, Bot, ArrowRight } from 'lucide-react';
+import Section from '../../design-system/Section';
 
 export function BentoGrid() {
   const problems = [
@@ -34,7 +35,7 @@ export function BentoGrid() {
       <div className="absolute top-1/2 left-1/4 w-[300px] h-[300px] bg-[#06b6d4]/5 rounded-full blur-[100px] -z-10"></div>
       
       <div className="container mx-auto px-6 lg:px-12">
-        <div className="max-w-2xl mb-16">
+        <Section stagger className="max-w-2xl mb-16">
           <h2 className="text-4xl lg:text-5xl mb-4 text-[#e2e8f0]">
             Problems we <span className="text-[#06b6d4] relative inline-block">
               eliminate
@@ -44,9 +45,10 @@ export function BentoGrid() {
           <p className="text-lg text-slate-400">
             Traditional systems fail. We don't.
           </p>
-        </div>
-        
-        <div className="grid lg:grid-cols-3 gap-6">
+        </Section>
+
+        <Section animation="fade-up">
+          <div className="grid lg:grid-cols-3 gap-6">
           {problems.map((item, index) => {
             const Icon = item.icon;
             const isOrange = item.accent === 'orange';
@@ -110,6 +112,7 @@ export function BentoGrid() {
             );
           })}
         </div>
+        </Section>
       </div>
     </section>
   );
