@@ -22,13 +22,13 @@ export const AnimateOnScroll: React.FC<AnimateOnScrollProps> = ({
   once = true,
   className = '',
   delay = 0,
-  duration = 700
+  duration = 700,
 }) => {
   const { ref, inView } = useInView<HTMLDivElement>({ threshold, rootMargin });
 
   const style: React.CSSProperties = {
     transitionDuration: `${duration}ms`,
-    transitionDelay: `${delay}ms`
+    transitionDelay: `${delay}ms`,
   };
 
   const base = 'will-change-transform transition-opacity transition-transform';

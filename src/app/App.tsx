@@ -6,7 +6,7 @@ import { Footer } from './components/Footer';
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-[#020617] text-white">
+    <div className="h-screen snap-y snap-mandatory overflow-y-auto scroll-smooth bg-[#020617] text-white">
       <HeroSection />
       <BentoGrid />
       <ServicesSection />

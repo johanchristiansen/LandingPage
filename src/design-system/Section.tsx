@@ -19,16 +19,18 @@ export const Section: React.FC<SectionProps> = ({
   stagger = false,
   threshold = 0.18,
   delay = 0,
-  duration = 700
+  duration = 700,
 }) => {
-  const inner = (
-    <div className={className}>
-      {children}
-    </div>
-  );
+  const inner = <div className={className}>{children}</div>;
 
   return (
-    <MotionAnimateOnScroll animation={animation} threshold={threshold} delay={delay} duration={duration} once>
+    <MotionAnimateOnScroll
+      animation={animation}
+      threshold={threshold}
+      delay={delay}
+      duration={duration}
+      once
+    >
       {stagger ? <Staggered>{inner}</Staggered> : inner}
     </MotionAnimateOnScroll>
   );

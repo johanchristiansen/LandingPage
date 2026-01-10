@@ -10,14 +10,11 @@ export function useInView<T extends Element = Element>(options?: Options) {
     const el = ref.current;
     if (!el) return;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          setInView(entry.isIntersecting);
-        });
-      },
-      options
-    );
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        setInView(entry.isIntersecting);
+      });
+    }, options);
 
     observer.observe(el);
 

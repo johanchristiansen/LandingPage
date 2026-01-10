@@ -18,20 +18,20 @@ interface Props {
 const variantsMap: Record<Animation, Variants> = {
   'fade-up': {
     hidden: { opacity: 0, y: 24 },
-    visible: { opacity: 1, y: 0 }
+    visible: { opacity: 1, y: 0 },
   },
   'fade-left': {
     hidden: { opacity: 0, x: -24 },
-    visible: { opacity: 1, x: 0 }
+    visible: { opacity: 1, x: 0 },
   },
   'fade-right': {
     hidden: { opacity: 0, x: 24 },
-    visible: { opacity: 1, x: 0 }
+    visible: { opacity: 1, x: 0 },
   },
   'zoom-in': {
     hidden: { opacity: 0, scale: 0.95 },
-    visible: { opacity: 1, scale: 1 }
-  }
+    visible: { opacity: 1, scale: 1 },
+  },
 };
 
 export const MotionAnimateOnScroll: React.FC<Props> = ({
@@ -42,7 +42,7 @@ export const MotionAnimateOnScroll: React.FC<Props> = ({
   once = true,
   className = '',
   delay = 0,
-  duration = 700
+  duration = 700,
 }) => {
   const controls = useAnimation();
   const { ref, inView } = useInView<HTMLDivElement>({ threshold, rootMargin });
