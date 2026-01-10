@@ -6,66 +6,72 @@ import Staggered from '../../design-system/components/Staggered';
 
 export function HeroSection() {
   return (
-    <section className="relative flex min-h-screen snap-start items-center overflow-hidden border-b border-[#06b6d4]/10">
+    <section className="relative flex items-center overflow-hidden border-b border-[#06b6d4]/10 pb-16 pt-32 lg:min-h-[85vh] lg:pb-24 lg:pt-36">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#06b6d4]/5 via-transparent to-[#f59e0b]/5"></div>
       <div className="absolute right-0 top-0 h-[500px] w-[500px] rounded-full bg-[#06b6d4]/10 blur-[120px]"></div>
       <div className="absolute bottom-0 left-0 h-[500px] w-[500px] rounded-full bg-[#f59e0b]/10 blur-[120px]"></div>
 
       <div className="container relative z-10 mx-auto px-6 lg:px-12">
-        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-24">
+        <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-20">
           {/* Left Side - Typography */}
-          <div className="space-y-8">
+          <div className="space-y-6">
             <AnimateOnScroll animation="fade-up">
-              <div className="inline-flex items-center gap-2 rounded-full border border-[#06b6d4]/30 bg-[#06b6d4]/5 px-4 py-2 backdrop-blur-sm">
+              <div className="inline-flex items-center gap-2 rounded-full border border-[#06b6d4]/30 bg-[#06b6d4]/5 px-3 py-1.5 backdrop-blur-sm">
                 <div className="h-2 w-2 animate-pulse rounded-full bg-[#06b6d4] shadow-lg shadow-[#06b6d4]/50"></div>
-                <span className="font-mono text-sm text-[#06b6d4]">S.T.S Labs</span>
+                <span className="font-mono text-xs text-[#06b6d4]">Full-Stack Tech Solution</span>
               </div>
             </AnimateOnScroll>
 
             <AnimateOnScroll animation="fade-up" delay={80}>
-              <h1 className="text-5xl leading-tight tracking-tight text-[#e2e8f0] lg:text-7xl">
-                Turn Cameras into{' '}
+              <h1 className="text-4xl leading-tight tracking-tight text-[#e2e8f0] lg:text-6xl">
+                Masa Depan Bisnis Anda:{' '}
                 <span className="relative inline-block text-[#06b6d4]">
-                  Intelligent Assets
+                  Cerdas, Terintegrasi, & Aman
                   <div className="absolute -bottom-2 left-0 right-0 h-1 rounded-full bg-gradient-to-r from-[#06b6d4]/50 to-transparent"></div>
                 </span>
               </h1>
             </AnimateOnScroll>
 
             <AnimateOnScroll animation="fade-up" delay={160}>
-              <p className="max-w-xl text-lg leading-relaxed text-slate-400">
-                Enterprise-grade AIoT and Computer Vision solutions. Local processing, real-time
-                analytics, zero cloud dependency.
+              <p className="max-w-xl text-base leading-relaxed text-slate-400 lg:text-lg">
+                Optimalkan operasional dengan sinergi IoT, AI, dan Software Enterprise dalam satu
+                ekosistem Private Cloud yang andal.
               </p>
             </AnimateOnScroll>
 
             <Staggered className="flex flex-wrap gap-4" delay={120}>
-              <button className="transform rounded-lg bg-gradient-to-r from-[#06b6d4] to-[#0891b2] px-8 py-3 font-medium text-slate-950 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#06b6d4]/25">
-                Get Started
-              </button>
-              <button className="flex items-center gap-2 rounded-lg border border-slate-700 px-8 py-3 text-[#e2e8f0] backdrop-blur-sm transition-all duration-300 hover:border-[#06b6d4]/50 hover:bg-[#06b6d4]/5">
+              <a
+                href="#contact"
+                className="transform rounded-lg bg-gradient-to-r from-[#06b6d4] to-[#0891b2] px-6 py-2.5 font-medium text-white transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#06b6d4]/25"
+              >
+                Mulai Transformasi
+              </a>
+              <a
+                href="#services"
+                className="flex items-center gap-2 rounded-lg border border-slate-700 px-6 py-2.5 text-[#e2e8f0] backdrop-blur-sm transition-all duration-300 hover:border-[#06b6d4]/50 hover:bg-[#06b6d4]/5"
+              >
                 <Play className="h-4 w-4" />
-                Watch Demo
-              </button>
+                Pelajari Layanan
+              </a>
             </Staggered>
 
             {/* Stats */}
             <Staggered
-              className="grid grid-cols-3 gap-8 border-t border-slate-800/50 pt-8"
+              className="grid grid-cols-3 gap-6 border-t border-slate-800/50 pt-6"
               delay={140}
             >
               <div>
-                <div className="font-mono text-2xl text-[#06b6d4]">99.9%</div>
-                <div className="text-sm text-slate-500">Uptime</div>
+                <div className="font-mono text-xl text-[#06b6d4]">99.9%</div>
+                <div className="text-xs text-slate-500">Uptime</div>
               </div>
               <div>
-                <div className="font-mono text-2xl text-[#06b6d4]">&lt;50ms</div>
-                <div className="text-sm text-slate-500">Latency</div>
+                <div className="font-mono text-xl text-[#06b6d4]">&lt;50ms</div>
+                <div className="text-xs text-slate-500">Latency</div>
               </div>
               <div>
-                <div className="font-mono text-2xl text-[#06b6d4]">100%</div>
-                <div className="text-sm text-slate-500">On-Prem</div>
+                <div className="font-mono text-xl text-[#06b6d4]">100%</div>
+                <div className="text-xs text-slate-500">On-Prem</div>
               </div>
             </Staggered>
           </div>
@@ -73,7 +79,7 @@ export function HeroSection() {
           {/* Right Side - Video Feed Placeholder */}
           <div className="relative">
             <MotionAnimateOnScroll animation="fade-left" className="relative" delay={120}>
-              <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-slate-800/50 bg-slate-900/50 shadow-2xl backdrop-blur-sm">
+              <div className="relative aspect-[4/3] overflow-hidden rounded-xl border border-slate-800/50 bg-slate-900/50 shadow-2xl backdrop-blur-sm">
                 {/* Video feed background */}
                 <ImageWithFallback
                   src="https://images.unsplash.com/photo-1647356191320-d7a1f80ca777?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxuZXVyYWwlMjBuZXR3b3JrJTIwZGF0YSUyMHZpc3VhbGl6YXRpb24lMjBkYXJrfGVufDF8fHx8MTc2NzYwMjk5M3ww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"

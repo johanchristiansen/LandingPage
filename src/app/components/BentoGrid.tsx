@@ -1,55 +1,61 @@
-import { CloudOff, EyeOff, Bot, ArrowRight } from 'lucide-react';
+import { TrendingDown, Lock, Unplug, ArrowRight } from 'lucide-react';
 import Section from '../../design-system/Section';
 
 export function BentoGrid() {
   const problems = [
     {
-      icon: CloudOff,
-      problem: 'High Cloud Costs',
-      solution: 'Hybrid Infrastructure',
+      icon: TrendingDown,
+      problem: 'Bisnis Tidak Efisien',
+      solution: 'Otomatisasi Cerdas',
       description:
-        'Cut operational costs by 70% with on-premise processing. Scale without bleeding money.',
+        'Proses manual yang lambat menghambat pertumbuhan. Kami hadirkan otomatisasi AI untuk percepatan bisnis.',
       accent: 'cyan',
-      stat: '70% Cost Reduction',
+      stat: '50% Lebih Cepat',
     },
     {
-      icon: EyeOff,
-      problem: 'Operational Blind Spots',
-      solution: 'IoT Sensor Networks',
+      icon: Lock,
+      problem: 'Data Tidak Aman',
+      solution: 'Private Cloud',
       description:
-        'Real-time monitoring across every critical point. No gaps, no delays, no excuses.',
+        'Kebocoran data adalah ancaman nyata. Infrastruktur server mandiri kami menjamin kedaulatan data Anda.',
       accent: 'orange',
-      stat: '24/7 Coverage',
+      stat: '100% Aman',
     },
     {
-      icon: Bot,
-      problem: 'Human Error',
-      solution: 'AI-Powered Automation',
-      description: 'Consistent, accurate detection. Let machines handle what humans miss.',
+      icon: Unplug,
+      problem: 'Teknologi Terpisah',
+      solution: 'Integrated Ecosystem',
+      description:
+        'Sistem yang tidak saling bicara bikin pusing. Solusi kami menyatukan Hardware, Software, dan AI.',
       accent: 'cyan',
-      stat: '99.2% Accuracy',
+      stat: 'All-in-One',
     },
   ];
 
   return (
-    <section className="relative min-h-screen snap-start overflow-hidden border-b border-[#06b6d4]/10 py-32">
+    <section
+      id="solution"
+      className="relative overflow-hidden border-b border-[#06b6d4]/10 py-12 lg:py-16"
+    >
       {/* Background elements */}
       <div className="absolute left-1/4 top-1/2 -z-10 h-[300px] w-[300px] rounded-full bg-[#06b6d4]/5 blur-[100px]"></div>
 
       <div className="container mx-auto px-6 lg:px-12">
-        <Section stagger className="mb-16 max-w-2xl">
-          <h2 className="mb-4 text-4xl text-[#e2e8f0] lg:text-5xl">
-            Problems we{' '}
+        <Section stagger className="mb-8 max-w-2xl lg:mb-10">
+          <h2 className="mb-3 text-3xl text-[#e2e8f0] lg:text-4xl">
+            Solusi untuk{' '}
             <span className="relative inline-block text-[#06b6d4]">
-              eliminate
+              Masalah Anda
               <div className="absolute -bottom-1 left-0 right-0 h-0.5 rounded-full bg-gradient-to-r from-[#06b6d4]/50 to-transparent"></div>
             </span>
           </h2>
-          <p className="text-lg text-slate-400">Traditional systems fail. We don't.</p>
+          <p className="text-base text-slate-400">
+            Jangan biarkan kendala teknis menghambat potensi bisnis Anda.
+          </p>
         </Section>
 
         <Section animation="fade-up">
-          <div className="grid gap-6 lg:grid-cols-3">
+          <div className="grid gap-5 lg:grid-cols-3">
             {problems.map((item, index) => {
               const Icon = item.icon;
               const isOrange = item.accent === 'orange';
@@ -57,17 +63,17 @@ export function BentoGrid() {
               return (
                 <div
                   key={index}
-                  className={`group relative rounded-2xl border bg-gradient-to-br from-slate-900/50 to-slate-900/30 ${
+                  className={`group relative rounded-xl border bg-gradient-to-br from-slate-900/50 to-slate-900/30 ${
                     isOrange
                       ? 'border-[#f59e0b]/20 hover:border-[#f59e0b]/40'
                       : 'border-[#06b6d4]/20 hover:border-[#06b6d4]/40'
-                  } p-8 backdrop-blur-sm transition-all duration-500 hover:shadow-xl ${
+                  } p-6 backdrop-blur-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-xl ${
                     isOrange ? 'hover:shadow-[#f59e0b]/10' : 'hover:shadow-[#06b6d4]/10'
-                  } hover:-translate-y-1`}
+                  }`}
                 >
                   {/* Glow effect */}
                   <div
-                    className={`absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100 ${
+                    className={`absolute inset-0 rounded-xl opacity-0 transition-opacity duration-500 group-hover:opacity-100 ${
                       isOrange
                         ? 'bg-gradient-to-br from-[#f59e0b]/5 to-transparent'
                         : 'bg-gradient-to-br from-[#06b6d4]/5 to-transparent'
@@ -76,22 +82,20 @@ export function BentoGrid() {
 
                   {/* Icon */}
                   <div
-                    className={`relative h-14 w-14 ${
+                    className={`relative mb-5 flex h-12 w-12 items-center justify-center rounded-lg border shadow-lg ${
                       isOrange
-                        ? 'border-[#f59e0b]/30 bg-gradient-to-br from-[#f59e0b]/10 to-[#f59e0b]/5'
-                        : 'border-[#06b6d4]/30 bg-gradient-to-br from-[#06b6d4]/10 to-[#06b6d4]/5'
-                    } mb-6 flex items-center justify-center rounded-xl border shadow-lg ${
-                      isOrange ? 'shadow-[#f59e0b]/10' : 'shadow-[#06b6d4]/10'
+                        ? 'border-[#f59e0b]/30 bg-gradient-to-br from-[#f59e0b]/10 to-[#f59e0b]/5 shadow-[#f59e0b]/10'
+                        : 'border-[#06b6d4]/30 bg-gradient-to-br from-[#06b6d4]/10 to-[#06b6d4]/5 shadow-[#06b6d4]/10'
                     }`}
                   >
-                    <Icon className={`h-6 w-6 ${isOrange ? 'text-[#f59e0b]' : 'text-[#06b6d4]'}`} />
+                    <Icon className={`h-5 w-5 ${isOrange ? 'text-[#f59e0b]' : 'text-[#06b6d4]'}`} />
                   </div>
 
                   {/* Content */}
-                  <div className="relative space-y-4">
+                  <div className="relative space-y-3">
                     <div>
-                      <div className="mb-1 font-mono text-sm text-slate-500">Problem</div>
-                      <h3 className="text-xl text-slate-300">{item.problem}</h3>
+                      <div className="mb-1 font-mono text-xs text-slate-500">Problem</div>
+                      <h3 className="text-lg text-slate-300">{item.problem}</h3>
                     </div>
 
                     <div className="flex items-center gap-2">
@@ -103,13 +107,13 @@ export function BentoGrid() {
                         }`}
                       ></div>
                       <ArrowRight
-                        className={`h-4 w-4 ${isOrange ? 'text-[#f59e0b]' : 'text-[#06b6d4]'}`}
+                        className={`h-3 w-3 ${isOrange ? 'text-[#f59e0b]' : 'text-[#06b6d4]'}`}
                       />
                     </div>
 
                     <div>
-                      <div className="mb-1 font-mono text-sm text-slate-500">Solution</div>
-                      <h3 className={`text-xl ${isOrange ? 'text-[#f59e0b]' : 'text-[#06b6d4]'}`}>
+                      <div className="mb-1 font-mono text-xs text-slate-500">Solution</div>
+                      <h3 className={`text-lg ${isOrange ? 'text-[#f59e0b]' : 'text-[#06b6d4]'}`}>
                         {item.solution}
                       </h3>
                     </div>
@@ -118,12 +122,12 @@ export function BentoGrid() {
 
                     {/* Stat */}
                     <div
-                      className={`mt-4 rounded-lg border-t pt-4 ${
+                      className={`mt-3 border-t pt-3 ${
                         isOrange ? 'border-[#f59e0b]/10' : 'border-[#06b6d4]/10'
                       }`}
                     >
                       <div
-                        className={`font-mono text-2xl ${
+                        className={`font-mono text-xl ${
                           isOrange ? 'text-[#f59e0b]' : 'text-[#06b6d4]'
                         }`}
                       >

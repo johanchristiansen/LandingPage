@@ -1,56 +1,75 @@
-import { Activity, Mail, Github, Linkedin } from 'lucide-react';
+import { Activity, Mail, Github, Linkedin, ArrowRight } from 'lucide-react';
 import Section from '../../design-system/Section';
 
 export function Footer() {
   return (
-    <footer className="relative snap-start overflow-hidden border-t border-[#06b6d4]/10 py-16">
+    <footer
+      id="contact"
+      className="relative overflow-hidden border-t border-[#06b6d4]/10 bg-[#020617] py-8 lg:py-10"
+    >
       {/* Background glow */}
-      <div className="absolute bottom-0 left-1/2 -z-10 h-[200px] w-[500px] -translate-x-1/2 rounded-full bg-[#06b6d4]/5 blur-[100px]"></div>
+      <div className="absolute bottom-0 left-1/2 -z-10 h-[150px] w-[400px] -translate-x-1/2 rounded-full bg-[#06b6d4]/5 blur-[80px]"></div>
 
       <div className="container mx-auto px-6 lg:px-12">
+        {/* Final CTA */}
+        <Section
+          animation="fade-up"
+          className="mb-10 rounded-xl border border-[#06b6d4]/20 bg-gradient-to-r from-[#06b6d4]/10 to-transparent p-6 text-center backdrop-blur-sm lg:mb-12 lg:p-8"
+        >
+          <h2 className="mb-3 text-2xl font-bold text-white lg:text-3xl">
+            Siap Mengubah Bisnis Anda?
+          </h2>
+          <p className="mx-auto mb-6 max-w-2xl text-base text-slate-400">
+            Jangan biarkan kompetitor mendahului Anda. Mari diskusikan solusi teknologi terbaik
+            untuk efisiensi dan pertumbuhan bisnis Anda hari ini.
+          </p>
+          <button className="inline-flex items-center gap-2 rounded-lg bg-[#06b6d4] px-6 py-2.5 text-sm font-semibold text-white transition-all hover:bg-[#0891b2] hover:shadow-lg hover:shadow-[#06b6d4]/25">
+            Konsultasi Gratis Sekarang <ArrowRight className="h-4 w-4" />
+          </button>
+        </Section>
+
         <Section animation="fade-up" stagger>
-          <div className="mb-12 grid gap-12 md:grid-cols-2 lg:grid-cols-4">
+          <div className="mb-8 grid gap-8 text-sm md:grid-cols-2 lg:grid-cols-4">
             {/* Brand */}
-            <div className="space-y-4">
-              <div className="text-2xl tracking-tight">
-                <span className="text-[#06b6d4]">S.T.S</span>{' '}
-                <span className="text-[#e2e8f0]">Labs</span>
+            <div className="space-y-3">
+              <div className="text-xl tracking-tight">
+                <span className="text-[#06b6d4]">Full-Stack</span>{' '}
+                <span className="text-[#e2e8f0]">Solutions</span>
               </div>
-              <p className="text-sm leading-relaxed text-slate-400">
-                Boutique AIoT and Computer Vision solutions. Built for reliability, engineered for
-                scale.
+              <p className="leading-relaxed text-slate-400">
+                Mitra teknologi terpercaya untuk IoT, AI, dan Software Enterprise.
               </p>
-              <div className="flex inline-flex items-center gap-2 rounded-lg border border-[#06b6d4]/20 bg-[#06b6d4]/5 px-3 py-2">
-                <Activity className="h-4 w-4 text-[#06b6d4]" />
-                <span className="font-mono text-sm text-[#06b6d4]">Systems Online</span>
+              <div className="flex inline-flex items-center gap-2 rounded-lg border border-[#06b6d4]/20 bg-[#06b6d4]/5 px-2 py-1.5">
+                <Activity className="h-3.5 w-3.5 text-[#06b6d4]" />
+                <span className="font-mono text-xs text-[#06b6d4]">System Operational</span>
               </div>
             </div>
 
             {/* Solutions */}
             <div>
-              <h4 className="mb-4 font-mono text-sm text-slate-500">SOLUTIONS</h4>
-              <ul className="space-y-2 text-sm">
+              <h4 className="mb-3 font-mono text-xs text-slate-500">LAYANAN</h4>
+              <ul className="space-y-1.5">
                 <li>
                   <a
-                    href="#"
+                    href="#services"
                     className="group flex items-center gap-2 text-slate-400 transition-colors hover:text-[#06b6d4]"
                   >
                     <div className="h-1 w-1 rounded-full bg-slate-700 transition-colors group-hover:bg-[#06b6d4]"></div>
-                    Smart Poultry Monitoring
+                    Smart Ecosystems
                   </a>
                 </li>
                 <li>
                   <a
-                    href="#"
+                    href="#services"
                     className="group flex items-center gap-2 text-slate-400 transition-colors hover:text-[#06b6d4]"
                   >
                     <div className="h-1 w-1 rounded-full bg-slate-700 transition-colors group-hover:bg-[#06b6d4]"></div>
-                    Video Analytics
+                    AI Intelligence
                   </a>
                 </li>
                 <li>
                   <a
-                    href="#"
+                    href="#services"
                     className="group flex items-center gap-2 text-slate-400 transition-colors hover:text-[#06b6d4]"
                   >
                     <div className="h-1 w-1 rounded-full bg-slate-700 transition-colors group-hover:bg-[#06b6d4]"></div>
@@ -59,7 +78,7 @@ export function Footer() {
                 </li>
                 <li>
                   <a
-                    href="#"
+                    href="#services"
                     className="group flex items-center gap-2 text-slate-400 transition-colors hover:text-[#06b6d4]"
                   >
                     <div className="h-1 w-1 rounded-full bg-slate-700 transition-colors group-hover:bg-[#06b6d4]"></div>
@@ -75,7 +94,7 @@ export function Footer() {
               <ul className="space-y-2 text-sm">
                 <li>
                   <a
-                    href="#"
+                    href="#about"
                     className="group flex items-center gap-2 text-slate-400 transition-colors hover:text-[#06b6d4]"
                   >
                     <div className="h-1 w-1 rounded-full bg-slate-700 transition-colors group-hover:bg-[#06b6d4]"></div>
@@ -84,7 +103,7 @@ export function Footer() {
                 </li>
                 <li>
                   <a
-                    href="#"
+                    href="#projects"
                     className="group flex items-center gap-2 text-slate-400 transition-colors hover:text-[#06b6d4]"
                   >
                     <div className="h-1 w-1 rounded-full bg-slate-700 transition-colors group-hover:bg-[#06b6d4]"></div>
@@ -93,7 +112,7 @@ export function Footer() {
                 </li>
                 <li>
                   <a
-                    href="#"
+                    href="#services"
                     className="group flex items-center gap-2 text-slate-400 transition-colors hover:text-[#06b6d4]"
                   >
                     <div className="h-1 w-1 rounded-full bg-slate-700 transition-colors group-hover:bg-[#06b6d4]"></div>
@@ -102,7 +121,7 @@ export function Footer() {
                 </li>
                 <li>
                   <a
-                    href="#"
+                    href="#contact"
                     className="group flex items-center gap-2 text-slate-400 transition-colors hover:text-[#06b6d4]"
                   >
                     <div className="h-1 w-1 rounded-full bg-slate-700 transition-colors group-hover:bg-[#06b6d4]"></div>
@@ -128,13 +147,17 @@ export function Footer() {
 
                 <div className="flex gap-3 pt-2">
                   <a
-                    href="#"
+                    href="https://github.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="group flex h-10 w-10 items-center justify-center rounded-lg border border-slate-800 backdrop-blur-sm transition-all duration-300 hover:border-[#06b6d4] hover:shadow-lg hover:shadow-[#06b6d4]/10"
                   >
                     <Github className="h-4 w-4 text-slate-400 transition-colors group-hover:text-[#06b6d4]" />
                   </a>
                   <a
-                    href="#"
+                    href="https://linkedin.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="group flex h-10 w-10 items-center justify-center rounded-lg border border-slate-800 backdrop-blur-sm transition-all duration-300 hover:border-[#06b6d4] hover:shadow-lg hover:shadow-[#06b6d4]/10"
                   >
                     <Linkedin className="h-4 w-4 text-slate-400 transition-colors group-hover:text-[#06b6d4]" />
