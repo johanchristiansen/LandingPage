@@ -14,17 +14,17 @@ export function Footer() {
         {/* Final CTA */}
         <Section
           animation="fade-up"
-          className="mb-10 rounded-xl border border-[#06b6d4]/20 bg-gradient-to-r from-[#06b6d4]/10 to-transparent p-6 text-center backdrop-blur-sm lg:mb-12 lg:p-8"
+          className="mb-8 rounded-xl border border-[#06b6d4]/20 bg-gradient-to-r from-[#06b6d4]/10 to-transparent p-5 text-center backdrop-blur-sm lg:mb-10 lg:p-6"
         >
-          <h2 className="mb-3 text-2xl font-bold text-white lg:text-3xl">
+          <h2 className="mb-2 text-xl font-bold text-white lg:text-2xl">
             Siap Mengubah Bisnis Anda?
           </h2>
-          <p className="mx-auto mb-6 max-w-2xl text-base text-slate-400">
+          <p className="mx-auto mb-4 max-w-xl text-sm text-slate-400">
             Jangan biarkan kompetitor mendahului Anda. Mari diskusikan solusi teknologi terbaik
             untuk efisiensi dan pertumbuhan bisnis Anda hari ini.
           </p>
-          <button className="inline-flex items-center gap-2 rounded-lg bg-[#06b6d4] px-6 py-2.5 text-sm font-semibold text-white transition-all hover:bg-[#0891b2] hover:shadow-lg hover:shadow-[#06b6d4]/25">
-            Konsultasi Gratis Sekarang <ArrowRight className="h-4 w-4" />
+          <button className="inline-flex items-center gap-2 rounded-lg bg-[#06b6d4] px-5 py-2 text-xs font-semibold text-white transition-all hover:bg-[#0891b2] hover:shadow-lg hover:shadow-[#06b6d4]/25">
+            Konsultasi Gratis Sekarang <ArrowRight className="h-3.5 w-3.5" />
           </button>
         </Section>
 
