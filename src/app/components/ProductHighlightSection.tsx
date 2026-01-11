@@ -47,7 +47,8 @@ export function ProductHighlightSection() {
             <div className="relative aspect-video w-full overflow-hidden rounded-lg border border-slate-700/50">
               <ImageWithFallback
                 src="https://images.unsplash.com/photo-1516467508483-a7212febe31a?auto=format&fit=crop&q=80&w=1080"
-                alt="Smart Poultry"
+                alt="Smart Poultry System Dashboard"
+                loading="lazy"
                 className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent">
@@ -78,7 +79,8 @@ export function ProductHighlightSection() {
             <div className="relative aspect-video w-full overflow-hidden rounded-lg border border-slate-700/50">
               <ImageWithFallback
                 src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&q=80&w=1080"
-                alt="Smart Home"
+                alt="Unified Smart Home Interface"
+                loading="lazy"
                 className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent">

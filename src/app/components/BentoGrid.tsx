@@ -61,7 +61,7 @@ export function BentoGrid() {
               const isOrange = item.accent === 'orange';
 
               return (
-                <div
+                <article
                   key={index}
                   className={`group relative rounded-xl border bg-gradient-to-br from-slate-900/50 to-slate-900/30 ${
                     isOrange
@@ -78,6 +78,7 @@ export function BentoGrid() {
                         ? 'bg-gradient-to-br from-[#f59e0b]/5 to-transparent'
                         : 'bg-gradient-to-br from-[#06b6d4]/5 to-transparent'
                     }`}
+                    aria-hidden="true"
                   ></div>
 
                   {/* Icon */}
@@ -87,6 +88,7 @@ export function BentoGrid() {
                         ? 'border-[#f59e0b]/30 bg-gradient-to-br from-[#f59e0b]/10 to-[#f59e0b]/5 shadow-[#f59e0b]/10'
                         : 'border-[#06b6d4]/30 bg-gradient-to-br from-[#06b6d4]/10 to-[#06b6d4]/5 shadow-[#06b6d4]/10'
                     }`}
+                    aria-hidden="true"
                   >
                     <Icon className={`h-5 w-5 ${isOrange ? 'text-[#f59e0b]' : 'text-[#06b6d4]'}`} />
                   </div>
@@ -100,7 +102,7 @@ export function BentoGrid() {
                       <h3 className="text-base text-slate-300">{item.problem}</h3>
                     </div>
 
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-2" aria-hidden="true">
                       <div
                         className={`h-px flex-1 ${
                           isOrange
@@ -139,7 +141,7 @@ export function BentoGrid() {
                       </div>
                     </div>
                   </div>
-                </div>
+                </article>
               );
             })}
           </div>

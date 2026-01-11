@@ -21,18 +21,21 @@ export function TechStackSection() {
             skalabilitas.
           </p>
 
-          <div className="flex flex-wrap justify-center gap-5 lg:gap-8">
+          <ul className="flex flex-wrap justify-center gap-5 lg:gap-8">
             {techStack.map((tech, idx) => (
-              <div key={idx} className="group flex flex-col items-center gap-2">
-                <div className="flex h-10 w-10 transform items-center justify-center rounded-lg border border-slate-800 bg-slate-900 shadow-lg transition-all duration-300 group-hover:-translate-y-1 group-hover:border-[#06b6d4]/50 group-hover:shadow-[#06b6d4]/20">
+              <li key={idx} className="group flex flex-col items-center gap-2">
+                <div
+                  className="flex h-10 w-10 transform items-center justify-center rounded-lg border border-slate-800 bg-slate-900 shadow-lg transition-all duration-300 group-hover:-translate-y-1 group-hover:border-[#06b6d4]/50 group-hover:shadow-[#06b6d4]/20"
+                  aria-hidden="true"
+                >
                   <tech.icon className="h-5 w-5 text-slate-500 transition-colors group-hover:text-[#06b6d4]" />
                 </div>
                 <span className="font-mono text-[10px] text-slate-500 transition-colors group-hover:text-slate-300">
                   {tech.name}
                 </span>
-              </div>
+              </li>
             ))}
-          </div>
+          </ul>
         </Section>
       </div>
     </section>

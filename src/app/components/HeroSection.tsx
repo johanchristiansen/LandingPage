@@ -1,4 +1,4 @@
-import { Play, Bot, Thermometer, Gauge, Zap } from 'lucide-react';
+import { Play, Bot, Thermometer, Gauge, Zap, ChevronDown } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import AnimateOnScroll from '../../design-system/components/AnimateOnScroll';
 import MotionAnimateOnScroll from '../../design-system/components/MotionAnimateOnScroll';
@@ -45,13 +45,13 @@ export function HeroSection() {
             <Staggered className="flex flex-wrap gap-3" delay={120}>
               <a
                 href="#contact"
-                className="transform rounded-lg bg-gradient-to-r from-[#06b6d4] to-[#0891b2] px-5 py-2 text-sm font-medium text-white transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#06b6d4]/25"
+                className="transform rounded-lg bg-gradient-to-r from-[#06b6d4] to-[#0891b2] px-6 py-3 text-sm font-medium text-white transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#06b6d4]/25 focus:outline-none focus:ring-2 focus:ring-[#06b6d4] focus:ring-offset-2 focus:ring-offset-slate-900 lg:py-2.5"
               >
                 Mulai Transformasi
               </a>
               <a
                 href="#services"
-                className="flex items-center gap-2 rounded-lg border border-slate-700 px-5 py-2 text-sm text-[#e2e8f0] backdrop-blur-sm transition-all duration-300 hover:border-[#06b6d4]/50 hover:bg-[#06b6d4]/5"
+                className="flex items-center gap-2 rounded-lg border border-slate-700 px-6 py-3 text-sm text-[#e2e8f0] backdrop-blur-sm transition-all duration-300 hover:border-[#06b6d4]/50 hover:bg-[#06b6d4]/5 focus:outline-none focus:ring-2 focus:ring-[#06b6d4] focus:ring-offset-2 focus:ring-offset-slate-900 lg:py-2.5"
               >
                 <Play className="h-3.5 w-3.5" />
                 Pelajari Layanan
@@ -63,18 +63,38 @@ export function HeroSection() {
               className="grid grid-cols-3 gap-4 border-t border-slate-800/50 pt-5"
               delay={140}
             >
-              <div>
-                <div className="font-mono text-lg text-[#06b6d4]">99.9%</div>
-                <div className="text-[10px] uppercase tracking-wider text-slate-500">Uptime</div>
-              </div>
-              <div>
-                <div className="font-mono text-lg text-[#06b6d4]">&lt;50ms</div>
-                <div className="text-[10px] uppercase tracking-wider text-slate-500">Latency</div>
-              </div>
-              <div>
-                <div className="font-mono text-lg text-[#06b6d4]">100%</div>
-                <div className="text-[10px] uppercase tracking-wider text-slate-500">On-Prem</div>
-              </div>
+              <dl className="contents">
+                <div>
+                  <dt className="sr-only">Uptime Guarantee</dt>
+                  <dd className="font-mono text-lg text-[#06b6d4]">99.9%</dd>
+                  <div
+                    className="text-[10px] uppercase tracking-wider text-slate-500"
+                    aria-hidden="true"
+                  >
+                    Uptime
+                  </div>
+                </div>
+                <div>
+                  <dt className="sr-only">Low Latency</dt>
+                  <dd className="font-mono text-lg text-[#06b6d4]">&lt;50ms</dd>
+                  <div
+                    className="text-[10px] uppercase tracking-wider text-slate-500"
+                    aria-hidden="true"
+                  >
+                    Latency
+                  </div>
+                </div>
+                <div>
+                  <dt className="sr-only">Deployment Type</dt>
+                  <dd className="font-mono text-lg text-[#06b6d4]">100%</dd>
+                  <div
+                    className="text-[10px] uppercase tracking-wider text-slate-500"
+                    aria-hidden="true"
+                  >
+                    On-Prem
+                  </div>
+                </div>
+              </dl>
             </Staggered>
           </div>
 
@@ -86,6 +106,8 @@ export function HeroSection() {
                 <ImageWithFallback
                   src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1080"
                   alt="Smart Industrial Automation"
+                  loading="eager"
+                  fetchPriority="high"
                   className="h-full w-full object-cover opacity-60 transition-transform duration-700 hover:scale-105"
                 />
 
@@ -158,6 +180,14 @@ export function HeroSection() {
             <div className="absolute -left-8 -top-8 -z-10 h-48 w-48 rounded-full bg-[#f59e0b]/5 blur-3xl"></div>
           </div>
         </div>
+      </div>
+
+      {/* Scroll Indicator */}
+      <div
+        className="absolute bottom-4 left-1/2 -translate-x-1/2 animate-bounce opacity-50"
+        aria-hidden="true"
+      >
+        <ChevronDown className="h-6 w-6 text-slate-400" />
       </div>
     </section>
   );
