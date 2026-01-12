@@ -1,10 +1,13 @@
 import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, User } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 import { LanguageSwitcher } from './LanguageSwitcher';
+import { useAuth } from '../../context/AuthContext';
 
 export function Navbar() {
   const { t } = useTranslation();
+  const { user, isAuthenticated } = useAuth();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -33,12 +36,12 @@ export function Navbar() {
       }`}
     >
       <div className="container mx-auto flex items-center justify-between px-6 py-4 lg:px-12">
-        <a href="/" className="flex items-center gap-2 text-xl font-bold tracking-tight">
+        <Link to="/" className="flex items-center gap-2 text-xl font-bold tracking-tight">
           <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-[#06b6d4] to-[#0891b2] font-mono text-sm text-white">
             NT
           </div>
           <span className="text-white">[NAMA BISNIS]</span>
-        </a>
+        </Link>
 
         {/* Desktop Menu */}
         <div className="hidden items-center gap-8 lg:flex">
@@ -54,12 +57,25 @@ export function Navbar() {
           <div className="border-l border-slate-700 pl-6">
             <LanguageSwitcher />
           </div>
-          <a
-            href="#contact"
-            className="rounded-lg bg-[#06b6d4] px-5 py-2 text-sm font-semibold text-white transition-all hover:bg-[#0891b2] hover:shadow-lg hover:shadow-[#06b6d4]/20 focus:outline-none focus:ring-2 focus:ring-[#06b6d4] focus:ring-offset-2 focus:ring-offset-slate-900"
-          >
-            {t('nav.consultation')}
-          </a>
+
+          {isAuthenticated ? (
+            <Link
+              to={user?.role === 'admin' ? '/admin' : '/dashboard'}
+              className="flex items-center gap-2 rounded-lg border border-slate-700 bg-slate-800 px-4 py-2 text-sm font-semibold text-white transition-all hover:bg-slate-700"
+            >
+              <User className="h-4 w-4" />
+              <span>{user?.name}</span>
+            </Link>
+          ) : (
+            <div className="flex items-center gap-3">
+              <Link
+                to="/signin"
+                className="rounded-lg bg-[#06b6d4] px-5 py-2 text-sm font-semibold text-white transition-all hover:bg-[#0891b2] hover:shadow-lg hover:shadow-[#06b6d4]/20 focus:outline-none focus:ring-2 focus:ring-[#06b6d4] focus:ring-offset-2 focus:ring-offset-slate-900"
+              >
+                {t('nav.startHere')}
+              </Link>
+            </div>
+          )}
         </div>
 
         {/* Mobile Toggle */}
@@ -90,13 +106,23 @@ export function Navbar() {
             <div className="py-2">
               <LanguageSwitcher />
             </div>
-            <a
-              href="#contact"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="block w-full rounded-lg bg-[#06b6d4] px-5 py-3 text-center text-sm font-semibold text-white transition-all hover:bg-[#0891b2]"
-            >
-              {t('nav.consultation')}
-            </a>
+            {isAuthenticated ? (
+              <Link
+                to="/dashboard"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="block w-full rounded-lg bg-slate-800 px-5 py-3 text-center text-sm font-semibold text-white transition-all hover:bg-slate-700"
+              >
+                {t('nav.dashboard')}
+              </Link>
+            ) : (
+              <Link
+                to="/signin"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="block w-full rounded-lg bg-[#06b6d4] px-5 py-3 text-center text-sm font-semibold text-white transition-all hover:bg-[#0891b2]"
+              >
+                {t('nav.startHere')}
+              </Link>
+            )}
           </div>
         </div>
       )}
