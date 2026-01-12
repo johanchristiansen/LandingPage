@@ -1,8 +1,11 @@
 import { Home, Egg } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import Section from '../../design-system/Section';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 
 export function ProductHighlightSection() {
+  const { t } = useTranslation();
+
   return (
     <section
       id="products"
@@ -14,15 +17,13 @@ export function ProductHighlightSection() {
       <div className="container mx-auto px-6 lg:px-12">
         <Section stagger className="mb-6 max-w-2xl lg:mb-8">
           <h2 className="mb-2 text-2xl text-[#e2e8f0] lg:text-3xl">
-            Produk{' '}
+            {t('products.title')}{' '}
             <span className="relative inline-block text-[#06b6d4]">
-              Unggulan
+              {t('products.titleHighlight')}
               <div className="absolute -bottom-1 left-0 right-0 h-0.5 rounded-full bg-gradient-to-r from-[#06b6d4]/50 to-transparent"></div>
             </span>
           </h2>
-          <p className="text-sm text-slate-400">
-            Bukti nyata inovasi kami dalam industri peternakan dan hunian pintar.
-          </p>
+          <p className="text-sm text-slate-400">{t('products.subtitle')}</p>
         </Section>
 
         <div className="grid gap-5 lg:grid-cols-2">
@@ -37,11 +38,11 @@ export function ProductHighlightSection() {
               <Egg className="h-4 w-4" />
             </div>
 
-            <h3 className="mb-2 text-lg font-semibold text-slate-200">Smart Poultry System</h3>
+            <h3 className="mb-2 text-lg font-semibold text-slate-200">
+              {t('products.poultry.title')}
+            </h3>
             <p className="mb-3 text-xs leading-relaxed text-slate-400">
-              Sistem pemantauan kandang cerdas berbasis IoT yang memantau suhu, kelembaban, dan
-              kadar amonia secara real-time. Dilengkapi analisis mortalitas otomatis untuk
-              meningkatkan hasil panen.
+              {t('products.poultry.description')}
             </p>
 
             <div className="relative aspect-video w-full overflow-hidden rounded-lg border border-slate-700/50">
@@ -53,7 +54,7 @@ export function ProductHighlightSection() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent">
                 <div className="absolute bottom-3 left-3 font-mono text-[10px] text-[#f59e0b]">
-                  STATUS: CONNECTED
+                  {t('products.poultry.status')}
                 </div>
               </div>
             </div>
@@ -70,10 +71,11 @@ export function ProductHighlightSection() {
               <Home className="h-4 w-4" />
             </div>
 
-            <h3 className="mb-2 text-lg font-semibold text-slate-200">Unified Smart Home</h3>
+            <h3 className="mb-2 text-lg font-semibold text-slate-200">
+              {t('products.smartHome.title')}
+            </h3>
             <p className="mb-3 text-xs leading-relaxed text-slate-400">
-              Integrasi penuh sistem keamanan, pencahayaan, dan efisiensi energi dalam satu
-              aplikasi. Kontrol suara intuitif dan otomatisasi berbasis kebiasaan penghuni.
+              {t('products.smartHome.description')}
             </p>
 
             <div className="relative aspect-video w-full overflow-hidden rounded-lg border border-slate-700/50">
@@ -85,7 +87,7 @@ export function ProductHighlightSection() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent">
                 <div className="absolute bottom-3 left-3 font-mono text-[10px] text-[#06b6d4]">
-                  AI MODE: ACTIVE
+                  {t('products.smartHome.status')}
                 </div>
               </div>
             </div>

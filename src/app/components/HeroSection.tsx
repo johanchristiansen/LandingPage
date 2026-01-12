@@ -1,10 +1,13 @@
 import { Play, Bot, Thermometer, Gauge, Zap, ChevronDown } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import AnimateOnScroll from '../../design-system/components/AnimateOnScroll';
 import MotionAnimateOnScroll from '../../design-system/components/MotionAnimateOnScroll';
 import Staggered from '../../design-system/components/Staggered';
 
 export function HeroSection() {
+  const { t } = useTranslation();
+
   return (
     <section className="relative flex items-center overflow-hidden border-b border-[#06b6d4]/10 pb-12 pt-20 lg:min-h-[75vh] lg:pb-20 lg:pt-24">
       {/* Background gradient */}
@@ -20,16 +23,16 @@ export function HeroSection() {
               <div className="inline-flex items-center gap-2 rounded-full border border-[#06b6d4]/30 bg-[#06b6d4]/5 px-3 py-1 backdrop-blur-sm">
                 <div className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#06b6d4] shadow-lg shadow-[#06b6d4]/50"></div>
                 <span className="font-mono text-[10px] uppercase tracking-wider text-[#06b6d4]">
-                  Full-Stack Tech Solution
+                  {t('hero.badge')}
                 </span>
               </div>
             </AnimateOnScroll>
 
             <AnimateOnScroll animation="fade-up" delay={80}>
               <h1 className="text-3xl leading-tight tracking-tight text-[#e2e8f0] lg:text-5xl">
-                Masa Depan Bisnis Anda:{' '}
+                {t('hero.title')}{' '}
                 <span className="relative inline-block text-[#06b6d4]">
-                  Cerdas, Terintegrasi, & Aman
+                  {t('hero.titleHighlight')}
                   <div className="absolute -bottom-1 left-0 right-0 h-0.5 rounded-full bg-gradient-to-r from-[#06b6d4]/50 to-transparent"></div>
                 </span>
               </h1>
@@ -37,8 +40,7 @@ export function HeroSection() {
 
             <AnimateOnScroll animation="fade-up" delay={160}>
               <p className="max-w-xl text-sm leading-relaxed text-slate-400 lg:text-base">
-                Optimalkan operasional dengan sinergi IoT, AI, dan Software Enterprise dalam satu
-                ekosistem Private Cloud yang andal.
+                {t('hero.subtitle')}
               </p>
             </AnimateOnScroll>
 
@@ -47,14 +49,14 @@ export function HeroSection() {
                 href="#contact"
                 className="transform rounded-lg bg-gradient-to-r from-[#06b6d4] to-[#0891b2] px-6 py-3 text-sm font-medium text-white transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#06b6d4]/25 focus:outline-none focus:ring-2 focus:ring-[#06b6d4] focus:ring-offset-2 focus:ring-offset-slate-900 lg:py-2.5"
               >
-                Mulai Transformasi
+                {t('hero.ctaPrimary')}
               </a>
               <a
                 href="#services"
                 className="flex items-center gap-2 rounded-lg border border-slate-700 px-6 py-3 text-sm text-[#e2e8f0] backdrop-blur-sm transition-all duration-300 hover:border-[#06b6d4]/50 hover:bg-[#06b6d4]/5 focus:outline-none focus:ring-2 focus:ring-[#06b6d4] focus:ring-offset-2 focus:ring-offset-slate-900 lg:py-2.5"
               >
                 <Play className="h-3.5 w-3.5" />
-                Pelajari Layanan
+                {t('hero.ctaSecondary')}
               </a>
             </Staggered>
 
@@ -65,33 +67,30 @@ export function HeroSection() {
             >
               <dl className="contents">
                 <div>
-                  <dt className="sr-only">Uptime Guarantee</dt>
                   <dd className="font-mono text-lg text-[#06b6d4]">99.9%</dd>
                   <div
                     className="text-[10px] uppercase tracking-wider text-slate-500"
                     aria-hidden="true"
                   >
-                    Uptime
+                    {t('hero.stats.uptime')}
                   </div>
                 </div>
                 <div>
-                  <dt className="sr-only">Low Latency</dt>
                   <dd className="font-mono text-lg text-[#06b6d4]">&lt;50ms</dd>
                   <div
                     className="text-[10px] uppercase tracking-wider text-slate-500"
                     aria-hidden="true"
                   >
-                    Latency
+                    {t('hero.stats.latency')}
                   </div>
                 </div>
                 <div>
-                  <dt className="sr-only">Deployment Type</dt>
                   <dd className="font-mono text-lg text-[#06b6d4]">100%</dd>
                   <div
                     className="text-[10px] uppercase tracking-wider text-slate-500"
                     aria-hidden="true"
                   >
-                    On-Prem
+                    {t('hero.stats.onPrem')}
                   </div>
                 </div>
               </dl>
@@ -116,7 +115,7 @@ export function HeroSection() {
                   {/* Target Box pada Mesin (Lengan Robot) */}
                   <div className="absolute left-[35%] top-[15%] h-56 w-56 animate-pulse rounded-lg border-2 border-dashed border-[#f59e0b]/50 shadow-[0_0_15px_rgba(245,158,11,0.2)]">
                     <div className="absolute -top-3 left-1/2 flex -translate-x-1/2 items-center gap-1 rounded bg-[#f59e0b] px-2 py-0.5 text-[10px] font-bold text-slate-950 shadow-lg">
-                      <Bot className="h-3 w-3" /> ROBOTIC ARM 04
+                      <Bot className="h-3 w-3" /> {t('hero.visualization.roboticArm')}
                     </div>
 
                     {/* Corner Accents for Tech Look */}
@@ -132,7 +131,8 @@ export function HeroSection() {
                     <div className="space-y-1.5">
                       <div className="flex justify-between text-[10px] text-slate-400">
                         <span className="flex items-center gap-1.5 font-medium text-slate-300">
-                          <Gauge className="h-3.5 w-3.5 text-[#06b6d4]" /> Efficiency
+                          <Gauge className="h-3.5 w-3.5 text-[#06b6d4]" />{' '}
+                          {t('hero.visualization.efficiency')}
                         </span>
                         <span className="font-mono font-bold text-green-400">98.5%</span>
                       </div>
@@ -145,13 +145,14 @@ export function HeroSection() {
                     <div className="grid grid-cols-2 gap-2 border-t border-slate-800 pt-3">
                       <div className="space-y-0.5">
                         <div className="flex items-center gap-1 text-[10px] text-slate-400">
-                          <Thermometer className="h-3 w-3 text-[#f59e0b]" /> Temp
+                          <Thermometer className="h-3 w-3 text-[#f59e0b]" />{' '}
+                          {t('hero.visualization.temp')}
                         </div>
                         <div className="font-mono text-xs font-medium text-slate-200">42°C</div>
                       </div>
                       <div className="space-y-0.5 border-l border-slate-800 pl-3">
                         <div className="flex items-center gap-1 text-[10px] text-slate-400">
-                          <Zap className="h-3 w-3 text-[#f59e0b]" /> Load
+                          <Zap className="h-3 w-3 text-[#f59e0b]" /> {t('hero.visualization.load')}
                         </div>
                         <div className="font-mono text-xs font-medium text-slate-200">12.4A</div>
                       </div>
@@ -164,12 +165,12 @@ export function HeroSection() {
                       <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#06b6d4] opacity-75"></span>
                       <span className="relative inline-flex h-2 w-2 rounded-full bg-[#06b6d4]"></span>
                     </span>
-                    AI AUTO-PILOT: ACTIVE
+                    {t('hero.visualization.aiAutoPilot')}
                   </div>
 
                   {/* Camera ID (Top Left) */}
                   <div className="absolute left-6 top-6 rounded bg-slate-950/40 px-2 py-1 font-mono text-[10px] text-slate-300 backdrop-blur-sm">
-                    CAM-FACTORY-02
+                    {t('hero.visualization.camera')}
                   </div>
                 </div>
               </div>

@@ -1,7 +1,10 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+import { LanguageSwitcher } from './LanguageSwitcher';
 
 export function Navbar() {
+  const { t } = useTranslation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -14,11 +17,11 @@ export function Navbar() {
   }, []);
 
   const navLinks = [
-    { name: 'Solusi', href: '#solution' },
-    { name: 'Layanan', href: '#services' },
-    { name: 'Keunggulan', href: '#why-us' },
-    { name: 'Produk', href: '#products' },
-    { name: 'Teknologi', href: '#tech' },
+    { name: t('nav.solutions'), href: '#solution' },
+    { name: t('nav.services'), href: '#services' },
+    { name: t('nav.whyUs'), href: '#why-us' },
+    { name: t('nav.products'), href: '#products' },
+    { name: t('nav.tech'), href: '#tech' },
   ];
 
   return (
@@ -48,11 +51,14 @@ export function Navbar() {
               {link.name}
             </a>
           ))}
+          <div className="border-l border-slate-700 pl-6">
+            <LanguageSwitcher />
+          </div>
           <a
             href="#contact"
             className="rounded-lg bg-[#06b6d4] px-5 py-2 text-sm font-semibold text-white transition-all hover:bg-[#0891b2] hover:shadow-lg hover:shadow-[#06b6d4]/20 focus:outline-none focus:ring-2 focus:ring-[#06b6d4] focus:ring-offset-2 focus:ring-offset-slate-900"
           >
-            Konsultasi Gratis
+            {t('nav.consultation')}
           </a>
         </div>
 
@@ -81,12 +87,15 @@ export function Navbar() {
                 {link.name}
               </a>
             ))}
+            <div className="py-2">
+              <LanguageSwitcher />
+            </div>
             <a
               href="#contact"
               onClick={() => setIsMobileMenuOpen(false)}
               className="block w-full rounded-lg bg-[#06b6d4] px-5 py-3 text-center text-sm font-semibold text-white transition-all hover:bg-[#0891b2]"
             >
-              Konsultasi Gratis
+              {t('nav.consultation')}
             </a>
           </div>
         </div>

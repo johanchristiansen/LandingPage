@@ -1,26 +1,26 @@
 import { Shield, Link, TrendingUp } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import Section from '../../design-system/Section';
 
 export function InfrastructureSection() {
+  const { t } = useTranslation();
+
   const advantages = [
     {
       icon: Shield,
-      title: 'Data Privacy (Server Lokal)',
-      description:
-        'Data Anda adalah aset berharga. Kami menyimpannya di infrastruktur privat yang aman, bukan di cloud publik.',
+      title: t('infrastructure.items.privacy.title'),
+      description: t('infrastructure.items.privacy.description'),
     },
     {
       icon: Link,
-      title: 'End-to-End Integration',
-      description:
-        'Sinergi sempurna antara Hardware (IoT), Software (ERP), dan AI dalam satu ekosistem terpadu.',
+      title: t('infrastructure.items.integration.title'),
+      description: t('infrastructure.items.integration.description'),
     },
     {
       icon: TrendingUp,
-      title: 'Scalable Tech',
-      description:
-        'Teknologi yang siap tumbuh bersama bisnis Anda. Dari skala kecil hingga enterprise, tanpa hambatan.',
+      title: t('infrastructure.items.scalable.title'),
+      description: t('infrastructure.items.scalable.description'),
     },
   ];
 
@@ -35,15 +35,13 @@ export function InfrastructureSection() {
       <div className="container mx-auto px-6 lg:px-12">
         <Section stagger className="mb-6 max-w-2xl lg:mb-8">
           <h2 className="mb-2 text-2xl text-[#e2e8f0] lg:text-3xl">
-            Kenapa Memilih{' '}
+            {t('infrastructure.title')}{' '}
             <span className="relative inline-block text-[#06b6d4]">
-              Kami?
+              {t('infrastructure.titleHighlight')}
               <div className="absolute -bottom-1 left-0 right-0 h-0.5 rounded-full bg-gradient-to-r from-[#06b6d4]/50 to-transparent"></div>
             </span>
           </h2>
-          <p className="text-sm text-slate-400">
-            Kombinasi keamanan, integrasi, dan skalabilitas untuk bisnis masa depan.
-          </p>
+          <p className="text-sm text-slate-400">{t('infrastructure.subtitle')}</p>
         </Section>
 
         <div className="grid gap-6 lg:grid-cols-2 lg:items-center">
@@ -65,9 +63,9 @@ export function InfrastructureSection() {
               {/* Tech labels */}
               <div className="absolute inset-0 p-4 font-mono text-[10px]">
                 <div className="inline-block space-y-1 rounded-lg border border-[#06b6d4]/20 bg-slate-950/60 px-2 py-1 backdrop-blur-md">
-                  <div className="text-[#06b6d4]">[ PRIVATE CLOUD ]</div>
-                  <div className="text-slate-500">Security: MAX HOLDOUT</div>
-                  <div className="text-slate-500">Access: RESTRICTED</div>
+                  <div className="text-[#06b6d4]">{t('infrastructure.privateCloud')}</div>
+                  <div className="text-slate-500">{t('infrastructure.securityLabel')}</div>
+                  <div className="text-slate-500">{t('infrastructure.accessLabel')}</div>
                 </div>
               </div>
             </div>

@@ -1,25 +1,22 @@
 import { useState } from 'react';
 import { Wifi, Brain, Monitor, ChevronRight, X } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import Section from '../../design-system/Section';
 import { Dialog, DialogContent, DialogTitle, DialogTrigger, DialogClose } from './ui/dialog';
 
 export function ServicesSection() {
+  const { t } = useTranslation();
   const [activeTab, setActiveTab] = useState(0);
 
   const services = [
     {
       id: 'iot',
-      name: 'Smart Ecosystems',
+      name: t('services.items.iot.name'),
       icon: Wifi,
-      tagline: 'Konektivitas Tanpa Batas',
-      description:
-        'Solusi IoT yang menghubungkan perangkat fisik dengan digital untuk efisiensi maksimal.',
-      features: [
-        'Smart Home & Building Automation',
-        'Industrial IoT Sensors',
-        'Energy Management Systems',
-      ],
+      tagline: t('services.items.iot.tagline'),
+      description: t('services.items.iot.description'),
+      features: t('services.items.iot.features', { returnObjects: true }) as string[],
       image:
         'https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?auto=format&fit=crop&q=80&w=1080',
       tech: ['ESP32', 'Zigbee', 'MQTT', 'Node-RED'],
@@ -32,16 +29,11 @@ export function ServicesSection() {
     },
     {
       id: 'ai',
-      name: 'AI & Data Intelligence',
+      name: t('services.items.ai.name'),
       icon: Brain,
-      tagline: 'Kecerdasan Buatan Terdepan',
-      description:
-        'Analisis data mendalam dan otomatisasi berbasis AI untuk keputusan bisnis yang lebih baik.',
-      features: [
-        'Computer Vision & Surveillance',
-        'Predictive Analytics',
-        'Natural Language Processing',
-      ],
+      tagline: t('services.items.ai.tagline'),
+      description: t('services.items.ai.description'),
+      features: t('services.items.ai.features', { returnObjects: true }) as string[],
       image:
         'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=1080',
       tech: ['TensorFlow', 'PyTorch', 'YOLO', 'Scikit-learn'],
@@ -54,15 +46,11 @@ export function ServicesSection() {
     },
     {
       id: 'software',
-      name: 'Enterprise Software',
+      name: t('services.items.software.name'),
       icon: Monitor,
-      tagline: 'Sistem Terintegrasi',
-      description: 'Pengembangan software custom yang menyatukan seluruh operasional bisnis Anda.',
-      features: [
-        'Custom ERP Development (Odoo)',
-        'Business Intelligence Dashboards',
-        'Workflow Automation Solutions',
-      ],
+      tagline: t('services.items.software.tagline'),
+      description: t('services.items.software.description'),
+      features: t('services.items.software.features', { returnObjects: true }) as string[],
       image:
         'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1080',
       tech: ['Odoo', 'PostgreSQL', 'React', 'Docker'],
@@ -73,25 +61,15 @@ export function ServicesSection() {
       },
       useCases: ['Supply Chain Mgmt', 'HR Information Sys', 'Financial Reporting'],
     },
-    // {
-    //   id: 'infra',
-    //   name: 'Infrastructure & Cloud',
-    //   icon: Server,
-    //   tagline: 'Fondasi Digital Kokoh',
-    //   description: 'Infrastruktur server dan jaringan yang aman, cepat, dan dapat diandalkan.',
-    //   features: [
-    //     'Private Cloud Setup',
-    //     'High-Performance Server Maintenance',
-    //     'Network Security & Firewall',
-    //   ],
-    //   image:
-    //     'https://images.unsplash.com/photo-1558494949-ef526b00fb65?auto=format&fit=crop&q=80&w=1080',
-    //   tech: ['Linux', 'Kubernetes', 'Proxmox', 'Cisco'],
-    // },
   ];
 
   const active = services[activeTab];
   const Icon = active.icon;
+
+  const titleString = t('services.title');
+  const titleWords = titleString.split(' ');
+  const lastTitleWord = titleWords.pop();
+  const firstTitlePart = titleWords.join(' ');
 
   return (
     <section
@@ -102,20 +80,15 @@ export function ServicesSection() {
       <div className="absolute right-1/4 top-1/4 -z-10 h-[400px] w-[400px] rounded-full bg-[#f59e0b]/5 blur-[120px]"></div>
 
       <div className="container mx-auto px-6 lg:px-12">
-        {/* Section wrapper provides consistent animation per section */}
-        {/* Using Section with stagger to reveal internal elements */}
-
         <Section stagger className="mb-8 max-w-2xl">
           <h2 className="mb-2 text-3xl text-[#e2e8f0] lg:text-4xl">
-            Layanan{' '}
+            {firstTitlePart}{' '}
             <span className="relative inline-block text-[#06b6d4]">
-              Kami
+              {lastTitleWord}
               <div className="absolute -bottom-1 left-0 right-0 h-0.5 rounded-full bg-gradient-to-r from-[#06b6d4]/50 to-transparent"></div>
             </span>
           </h2>
-          <p className="text-base text-slate-400">
-            Inovasi teknologi yang disesuaikan dengan kebutuhan industri Anda.
-          </p>
+          <p className="text-base text-slate-400">{t('services.subtitle')}</p>
         </Section>
 
         {/* Tabs */}
@@ -203,8 +176,10 @@ export function ServicesSection() {
                   <ChevronRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
                 </button>
               </DialogTrigger>
-              <DialogContent className="max-w-lg overflow-hidden border border-slate-800 bg-[#020617]/95 p-0 backdrop-blur-xl sm:rounded-2xl">
-                {/* Hero Image in Header */}
+
+              {/* MODIFIED: Added flex flex-col and max-h-[85vh] to the dialog content */}
+              <DialogContent className="flex max-h-[85vh] max-w-lg flex-col overflow-hidden border border-slate-800 bg-[#020617]/95 p-0 backdrop-blur-xl sm:rounded-2xl">
+                {/* 1. HEADER (Static, shrink-0) */}
                 <div className="relative h-32 w-full shrink-0 overflow-hidden">
                   <ImageWithFallback
                     src={active.image}
@@ -223,16 +198,17 @@ export function ServicesSection() {
                     </DialogTitle>
                   </div>
 
-                  {/* Close Button Override */}
                   <DialogClose className="absolute right-3 top-3 rounded-full bg-black/20 p-1.5 text-white/70 backdrop-blur-sm transition-all hover:bg-black/40 hover:text-white focus:outline-none focus:ring-2 focus:ring-[#06b6d4]">
                     <X className="h-3.5 w-3.5" />
                     <span className="sr-only">Close</span>
                   </DialogClose>
                 </div>
 
-                <div className="scrollbar-thin scrollbar-track-slate-900 scrollbar-thumb-slate-700 max-h-[60vh] overflow-y-auto p-5">
+                {/* 2. CONTENT (Scrollable, flex-1) */}
+                {/* Changed: Removed sticky footer from inside here, added flex-1 */}
+                <div className="scrollbar-thin scrollbar-track-slate-900 scrollbar-thumb-slate-700 flex-1 overflow-y-auto p-5">
                   <div className="space-y-6">
-                    {/* Section 1: Core Tech */}
+                    {/* Core Tech */}
                     <div>
                       <h4 className="flex items-center gap-2 text-xs font-semibold text-[#06b6d4]">
                         <Brain className="h-3.5 w-3.5" /> Core Technology
@@ -263,7 +239,7 @@ export function ServicesSection() {
                         </ul>
                       </div>
 
-                      {/* Top Use Cases (New Data) */}
+                      {/* Use Cases */}
                       <div className="space-y-2">
                         <h4 className="text-[10px] font-semibold uppercase tracking-wider text-slate-500">
                           Use Cases
@@ -282,7 +258,7 @@ export function ServicesSection() {
                       </div>
                     </div>
 
-                    {/* Specs Table (Dynamic) */}
+                    {/* Specs Table */}
                     <div className="space-y-2">
                       <h4 className="text-[10px] font-semibold uppercase tracking-wider text-slate-500">
                         Technical Specifications
@@ -317,29 +293,27 @@ export function ServicesSection() {
                       </div>
                     </div>
                   </div>
+                </div>
 
-                  {/* Spacer to prevent overlap with sticky footer */}
-                  <div className="h-20"></div>
-
-                  <div className="sticky bottom-0 -mx-5 -mb-5 border-t border-slate-800/50 bg-[#020617]/95 p-5 backdrop-blur-md">
-                    <DialogClose asChild>
-                      <button
-                        onClick={() => {
-                          // Delay scroll to allow Dialog to close and body scroll to unlock
-                          setTimeout(() => {
-                            const contactSection = document.getElementById('contact');
-                            if (contactSection) {
-                              contactSection.scrollIntoView({ behavior: 'smooth' });
-                            }
-                          }, 150);
-                        }}
-                        className="group flex w-full items-center justify-center gap-2 rounded-lg bg-[#06b6d4] py-2.5 text-xs font-bold text-white transition-all hover:bg-[#0891b2] hover:shadow-lg hover:shadow-[#06b6d4]/20 focus:outline-none focus:ring-2 focus:ring-[#06b6d4] focus:ring-offset-2 focus:ring-offset-slate-900 active:scale-95"
-                      >
-                        Schedule Demo
-                        <ChevronRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
-                      </button>
-                    </DialogClose>
-                  </div>
+                {/* 3. FOOTER (Static, shrink-0) */}
+                {/* Changed: Moved outside the scroll view, removed sticky, removed negative margins */}
+                <div className="shrink-0 border-t border-slate-800/50 bg-[#020617]/95 p-5 backdrop-blur-md">
+                  <DialogClose asChild>
+                    <button
+                      onClick={() => {
+                        setTimeout(() => {
+                          const contactSection = document.getElementById('contact');
+                          if (contactSection) {
+                            contactSection.scrollIntoView({ behavior: 'smooth' });
+                          }
+                        }, 150);
+                      }}
+                      className="group flex w-full items-center justify-center gap-2 rounded-lg bg-[#06b6d4] py-2.5 text-xs font-bold text-white transition-all hover:bg-[#0891b2] hover:shadow-lg hover:shadow-[#06b6d4]/20 focus:outline-none focus:ring-2 focus:ring-[#06b6d4] focus:ring-offset-2 focus:ring-offset-slate-900 active:scale-95"
+                    >
+                      Schedule Demo
+                      <ChevronRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+                    </button>
+                  </DialogClose>
                 </div>
               </DialogContent>
             </Dialog>

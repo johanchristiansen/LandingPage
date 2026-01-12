@@ -1,34 +1,34 @@
 import { TrendingDown, Lock, Unplug, ArrowRight } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import Section from '../../design-system/Section';
 
 export function BentoGrid() {
+  const { t } = useTranslation();
+
   const problems = [
     {
       icon: TrendingDown,
-      problem: 'Bisnis Tidak Efisien',
-      solution: 'Otomatisasi Cerdas',
-      description:
-        'Proses manual yang lambat menghambat pertumbuhan. Kami hadirkan otomatisasi AI untuk percepatan bisnis.',
+      problem: t('bentoGrid.items.efficiency.problem'),
+      solution: t('bentoGrid.items.efficiency.solution'),
+      description: t('bentoGrid.items.efficiency.description'),
       accent: 'cyan',
-      stat: '50% Lebih Cepat',
+      stat: t('bentoGrid.items.efficiency.stat'),
     },
     {
       icon: Lock,
-      problem: 'Data Tidak Aman',
-      solution: 'Private Cloud',
-      description:
-        'Kebocoran data adalah ancaman nyata. Infrastruktur server mandiri kami menjamin kedaulatan data Anda.',
+      problem: t('bentoGrid.items.security.problem'),
+      solution: t('bentoGrid.items.security.solution'),
+      description: t('bentoGrid.items.security.description'),
       accent: 'orange',
-      stat: '100% Aman',
+      stat: t('bentoGrid.items.security.stat'),
     },
     {
       icon: Unplug,
-      problem: 'Teknologi Terpisah',
-      solution: 'Integrated Ecosystem',
-      description:
-        'Sistem yang tidak saling bicara bikin pusing. Solusi kami menyatukan Hardware, Software, dan AI.',
+      problem: t('bentoGrid.items.integration.problem'),
+      solution: t('bentoGrid.items.integration.solution'),
+      description: t('bentoGrid.items.integration.description'),
       accent: 'cyan',
-      stat: 'All-in-One',
+      stat: t('bentoGrid.items.integration.stat'),
     },
   ];
 
@@ -43,15 +43,13 @@ export function BentoGrid() {
       <div className="container mx-auto px-6 lg:px-12">
         <Section stagger className="mb-6 max-w-2xl lg:mb-8">
           <h2 className="mb-2 text-2xl text-[#e2e8f0] lg:text-3xl">
-            Solusi untuk{' '}
+            {t('bentoGrid.title')}{' '}
             <span className="relative inline-block text-[#06b6d4]">
-              Masalah Anda
+              {t('bentoGrid.titleHighlight')}
               <div className="absolute -bottom-1 left-0 right-0 h-0.5 rounded-full bg-gradient-to-r from-[#06b6d4]/50 to-transparent"></div>
             </span>
           </h2>
-          <p className="text-sm text-slate-400">
-            Jangan biarkan kendala teknis menghambat potensi bisnis Anda.
-          </p>
+          <p className="text-sm text-slate-400">{t('bentoGrid.subtitle')}</p>
         </Section>
 
         <Section animation="fade-up">
@@ -97,7 +95,7 @@ export function BentoGrid() {
                   <div className="relative space-y-2">
                     <div>
                       <div className="mb-0.5 font-mono text-[10px] uppercase tracking-wider text-slate-500">
-                        Problem
+                        {t('bentoGrid.problemLabel')}
                       </div>
                       <h3 className="text-base text-slate-300">{item.problem}</h3>
                     </div>
@@ -117,7 +115,7 @@ export function BentoGrid() {
 
                     <div>
                       <div className="mb-0.5 font-mono text-[10px] uppercase tracking-wider text-slate-500">
-                        Solution
+                        {t('bentoGrid.solutionLabel')}
                       </div>
                       <h3 className={`text-base ${isOrange ? 'text-[#f59e0b]' : 'text-[#06b6d4]'}`}>
                         {item.solution}

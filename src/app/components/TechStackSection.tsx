@@ -1,7 +1,10 @@
 import { Database, Server, Search, ShieldCheck, Cpu } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import Section from '../../design-system/Section';
 
 export function TechStackSection() {
+  const { t } = useTranslation();
+
   const techStack = [
     { name: 'Odoo ERP', icon: Database },
     { name: 'Docker', icon: Server },
@@ -15,11 +18,8 @@ export function TechStackSection() {
     <section id="tech" className="relative border-b border-[#06b6d4]/10 bg-[#020617] py-10">
       <div className="container mx-auto px-6 text-center lg:px-12">
         <Section animation="fade-up">
-          <h2 className="mb-2 text-xl font-semibold text-slate-200">Didukung Teknologi Terkini</h2>
-          <p className="mb-6 text-xs text-slate-400">
-            Kami menggunakan stack teknologi modern untuk menjamin performa, keamanan, dan
-            skalabilitas.
-          </p>
+          <h2 className="mb-2 text-xl font-semibold text-slate-200">{t('techStack.title')}</h2>
+          <p className="mb-6 text-xs text-slate-400">{t('techStack.subtitle')}</p>
 
           <ul className="flex flex-wrap justify-center gap-5 lg:gap-8">
             {techStack.map((tech, idx) => (
