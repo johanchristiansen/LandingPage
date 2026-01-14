@@ -9,7 +9,7 @@ export function ConfigPanel() {
   const { t } = useTranslation();
 
   return (
-    <div className="h-full rounded-xl border border-slate-700 bg-slate-800 p-6 shadow-lg">
+    <div className="h-full rounded-xl border border-slate-700 bg-slate-800 p-4 shadow-lg md:p-6">
       <h2 className="mb-6 flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-slate-200">
         <SettingsIcon />
         {t('dashboard.admin.config.title')}

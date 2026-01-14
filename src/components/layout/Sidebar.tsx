@@ -16,9 +16,18 @@ interface SidebarProps {
   activeTab: string;
   setActiveTab: (id: string) => void;
   title?: string;
+  isMobileOpen?: boolean;
+  onMobileClose?: () => void;
 }
 
-export const Sidebar = ({ items, activeTab, setActiveTab, title = 'IoT Nexus' }: SidebarProps) => {
+export const Sidebar = ({ 
+  items, 
+  activeTab, 
+  setActiveTab, 
+  title = 'IoT Nexus',
+  isMobileOpen,
+  onMobileClose
+}: SidebarProps) => {
   const { logout } = useAuth();
   const navigate = useNavigate();
   const [isCollapsed, setIsCollapsed] = useState(false);
@@ -29,29 +38,32 @@ export const Sidebar = ({ items, activeTab, setActiveTab, title = 'IoT Nexus' }:
     navigate('/');
   };
 
+  const handleTabClick = (id: string) => {
+    setActiveTab(id);
+    if (onMobileClose) onMobileClose();
+  };
+
   return (
     <div
-      className={`relative z-50 flex h-full flex-col border-r border-[#06b6d4]/10 bg-[#020617]/95 text-slate-300 backdrop-blur-xl transition-all duration-300 ${
-        isCollapsed ? 'w-20' : 'w-64'
-      }`}
+      className={`fixed inset-y-0 left-0 z-50 flex h-full flex-col border-r border-[#06b6d4]/10 bg-[#020617]/95 text-slate-300 backdrop-blur-xl transition-all duration-300 lg:relative ${
+        isMobileOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
+      } ${isCollapsed ? 'lg:w-20' : 'lg:w-64'} w-64`}
     >
       <button
         onClick={() => setIsCollapsed(!isCollapsed)}
-        className="absolute -right-4 top-9 z-50 flex h-8 w-8 items-center justify-center rounded-full border border-slate-700 bg-slate-800 text-slate-400 shadow-[0_0_10px_rgba(0,0,0,0.5)] transition-all hover:bg-slate-700 hover:text-white hover:ring-2 hover:ring-[#06b6d4]/20"
+        className="absolute -right-4 top-1/2 z-50 hidden h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full border border-slate-700 bg-slate-800 text-slate-400 shadow-[0_0_10px_rgba(0,0,0,0.5)] transition-all hover:bg-slate-700 hover:text-white hover:ring-2 hover:ring-[#06b6d4]/20 lg:flex"
       >
         {isCollapsed ? <ChevronRight size={16} /> : <ChevronLeft size={16} />}
       </button>
 
-      <div className={`flex items-center gap-3 p-6 ${isCollapsed ? 'justify-center px-2' : ''}`}>
+      <div className={`flex items-center gap-3 p-6 ${isCollapsed ? 'lg:justify-center lg:px-2' : ''}`}>
         <Link to="/" className="flex items-center gap-2 overflow-hidden">
           <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-[#06b6d4] to-[#0891b2] font-mono text-sm text-white">
             NT
           </div>
-          {!isCollapsed && (
-            <span className="whitespace-nowrap bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-xl font-bold text-transparent">
-              {title}
-            </span>
-          )}
+          <span className={`whitespace-nowrap bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-xl font-bold text-transparent ${isCollapsed ? 'lg:hidden' : 'block'}`}>
+            {title}
+          </span>
         </Link>
       </div>
 
@@ -59,13 +71,13 @@ export const Sidebar = ({ items, activeTab, setActiveTab, title = 'IoT Nexus' }:
         {items.map((item) => (
           <button
             key={item.id}
-            onClick={() => setActiveTab(item.id)}
+            onClick={() => handleTabClick(item.id)}
             title={isCollapsed ? item.label : ''}
             className={`group flex w-full items-center gap-3 rounded-xl px-3 py-3 transition-all duration-200 ${
               activeTab === item.id
                 ? 'border border-[#06b6d4]/20 bg-[#06b6d4]/5 text-[#06b6d4] shadow-[0_0_20px_rgba(6,182,212,0.1)]'
                 : 'hover:bg-slate-800/50 hover:text-slate-100'
-            } ${isCollapsed ? 'justify-center' : ''}`}
+            } ${isCollapsed ? 'lg:justify-center' : ''}`}
           >
             <item.icon
               size={20}
@@ -75,13 +87,11 @@ export const Sidebar = ({ items, activeTab, setActiveTab, title = 'IoT Nexus' }:
                   : 'text-slate-400 group-hover:text-slate-100'
               }`}
             />
-            {!isCollapsed && (
-              <>
-                <span className="font-medium">{item.label}</span>
-                {activeTab === item.id && (
-                  <div className="ml-auto h-1.5 w-1.5 rounded-full bg-[#06b6d4] shadow-[0_0_10px_rgba(34,211,238,1)]" />
-                )}
-              </>
+            <span className={`font-medium ${isCollapsed ? 'lg:hidden' : 'block'}`}>
+              {item.label}
+            </span>
+            {!isCollapsed && activeTab === item.id && (
+              <div className="ml-auto hidden h-1.5 w-1.5 rounded-full bg-[#06b6d4] shadow-[0_0_10px_rgba(34,211,238,1)] lg:block" />
             )}
           </button>
         ))}
@@ -92,11 +102,13 @@ export const Sidebar = ({ items, activeTab, setActiveTab, title = 'IoT Nexus' }:
           onClick={handleLogout}
           title={isCollapsed ? t('dashboard.common.signOut') : ''}
           className={`flex w-full items-center gap-3 rounded-xl px-3 py-3 text-slate-400 transition-colors hover:bg-slate-800/50 hover:text-rose-400 ${
-            isCollapsed ? 'justify-center' : ''
+            isCollapsed ? 'lg:justify-center' : ''
           }`}
         >
           <LogOut size={20} />
-          {!isCollapsed && <span className="font-medium">{t('dashboard.common.signOut')}</span>}
+          <span className={`font-medium ${isCollapsed ? 'lg:hidden' : 'block'}`}>
+            {t('dashboard.common.signOut')}
+          </span>
         </button>
       </div>
     </div>

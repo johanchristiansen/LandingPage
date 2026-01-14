@@ -66,15 +66,15 @@ export function UserTable() {
 
   return (
     <div className="overflow-hidden rounded-xl border border-slate-700 bg-slate-800 shadow-lg">
-      <div className="flex items-center justify-between border-b border-slate-700 p-4">
+      <div className="flex flex-col gap-4 border-b border-slate-700 p-4 sm:flex-row sm:items-center sm:justify-between">
         <h2 className="text-sm font-semibold uppercase tracking-wide text-slate-200">
           {t('dashboard.admin.userManagement')}
         </h2>
-        <div className="flex gap-2">
+        <div className="flex flex-col gap-2 sm:flex-row">
           <input
             type="text"
             placeholder={t('dashboard.common.searchPlaceholder')}
-            className="w-64 rounded border border-slate-700 bg-slate-900 px-3 py-1.5 font-mono text-sm text-slate-300 transition-colors focus:border-cyan-500 focus:outline-none"
+            className="w-full rounded border border-slate-700 bg-slate-900 px-3 py-1.5 font-mono text-sm text-slate-300 transition-colors focus:border-cyan-500 focus:outline-none sm:w-64"
           />
           <button className="rounded bg-cyan-600 px-3 py-1.5 text-sm font-medium text-white transition-colors hover:bg-cyan-500">
             {t('dashboard.admin.addUser')}

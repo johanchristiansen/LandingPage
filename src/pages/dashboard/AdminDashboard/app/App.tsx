@@ -22,10 +22,10 @@ function App() {
     switch (activeTab) {
       case 'dashboard':
         return (
-          <div className="mx-auto max-w-[1600px] space-y-6 p-6 pb-20">
-            <div className="mb-2 flex items-end justify-between">
+          <div className="mx-auto max-w-[1600px] space-y-6 p-4 pb-20 md:p-6">
+            <div className="mb-2 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
               <div>
-                <h1 className="text-2xl font-bold tracking-tight text-white">
+                <h1 className="text-xl font-bold tracking-tight text-white md:text-2xl">
                   {t('dashboard.admin.systemOverview')}
                 </h1>
                 <p className="mt-1 text-sm text-slate-400">
