@@ -95,25 +95,139 @@ i18n
             },
           },
           dashboard: {
+            common: {
+              searchPlaceholder: 'Search...',
+              signOut: 'Sign Out',
+              viewAll: 'View All',
+              online: 'Online',
+              offline: 'Offline',
+              connected: 'Connected',
+              disconnected: 'Disconnected',
+              status: 'System Status: {{status}}',
+              moduleUnderConstruction: 'Module Under Construction',
+              moduleDeveloping: 'The {{module}} module is currently being developed.',
+            },
+            nav: {
+              dashboard: 'Dashboard',
+            },
+            menu: {
+              overview: 'Overview',
+              subscriptions: 'My Subscriptions',
+              api: 'API Access',
+              billing: 'Billing',
+              settings: 'Settings',
+              monitor: 'Monitor',
+              users: 'Users',
+              services: 'Services',
+              logs: 'Logs',
+              config: 'Config',
+            },
             user: {
-              consoleLabel: 'Console',
-              welcome: 'Welcome back, {{name}}',
-              manageDesc: 'Manage your active services and settings.',
+              consoleLabel: 'IoT Nexus',
+              welcome: 'Hello, {{name}}',
+              overviewSubtitle: "Here's what's happening with your IoT infrastructure today.",
               activeSubscriptions: 'Active Subscriptions',
+              apiUsage: 'API Usage & Traffic',
+              quickActions: 'Quick Actions',
+              storageUsed: 'Storage Used',
+              totalRequests: 'Total Requests',
+              timeRange: {
+                last7Days: 'Last 7 Days',
+                last30Days: 'Last 30 Days',
+              },
+              toggles: {
+                whatsapp: {
+                  label: 'WhatsApp Notifications',
+                  desc: 'Receive alerts via WhatsApp',
+                },
+                aiWeight: {
+                  label: 'AI Weight Prediction',
+                  desc: 'Enable predictive algorithms',
+                },
+                autoScale: {
+                  label: 'Auto-Scaling',
+                  desc: 'Allow dynamic resource allocation',
+                },
+                debug: {
+                  label: 'Debug Mode',
+                  desc: 'Show detailed error logs',
+                },
+              },
+              manageDesc: 'Manage your active services and settings.',
               accountSupport: 'Account & Support',
               accountSettings: 'Account Settings',
               manageProfileBilling: 'Manage profile and billing',
               documentation: 'Documentation',
               guidesApiReferences: 'Guides and API references',
-              cta: {
-                launchDashboard: 'Launch Dashboard',
-                openAnalytics: 'Open Analytics',
-                accessERP: 'Access ERP',
+              views: {
+                subscriptions: {
+                  title: 'My Subscriptions',
+                  desc: 'Manage your active services and plan details.',
+                  items: {
+                    poultry: 'Smart Poultry System',
+                    cctv: 'AI CCTV Analytics',
+                    erp: 'Enterprise ERP',
+                    maintenance: 'Predictive Maintenance',
+                  },
+                  manage: 'Manage Service',
+                },
+                api: {
+                  title: 'API Access',
+                  desc: 'Manage API keys and access tokens for your applications.',
+                  prodKey: 'Production Key',
+                  copy: 'Copy',
+                  lastUsed: 'Last used: {{time}} • Created on {{date}}',
+                  rateLimit: {
+                    label: 'Rate Limiting',
+                    desc: 'Automatically throttle requests that exceed your plan limits.',
+                  },
+                },
+                billing: {
+                  title: 'Billing & Plans',
+                  desc: 'View your invoices and manage payment methods.',
+                  balance: 'Current Balance',
+                  addFunds: 'Add Funds',
+                  currentPlan: 'Current Plan',
+                  upgrade: 'Upgrade Plan',
+                  proPlan: 'Pro Plan',
+                },
+                settings: {
+                  title: 'Account Settings',
+                  desc: 'Manage your profile and preferences.',
+                  security: {
+                    title: 'Security',
+                    '2fa': {
+                      label: 'Two-Factor Authentication',
+                      desc: 'Add an extra layer of security to your account.',
+                    },
+                    alerts: {
+                      label: 'Login Alerts',
+                      desc: 'Get notified of new login attempts.',
+                    },
+                  },
+                  notifications: {
+                    title: 'Notifications',
+                    digest: {
+                      label: 'Email Digests',
+                      desc: 'Receive a weekly summary of your IoT stats.',
+                    },
+                    marketing: {
+                      label: 'Marketing Updates',
+                      desc: 'Receive news about new features and products.',
+                    },
+                  },
+                },
+              },
+              charts: {
+                last7: 'Last 7 Days',
+                last30: 'Last 30 Days',
               },
             },
             admin: {
               portalLabel: 'Admin Portal',
+              headerTitle: 'Mission Control',
               systemOverview: 'System Overview',
+              systemOverviewSubtitle: 'Real-time monitoring and management.',
               cards: {
                 activeUsers: 'Active Users',
                 systemHealth: 'System Health',
@@ -122,7 +236,35 @@ i18n
                 noActiveThreats: 'No active threats',
               },
               userManagement: 'User Management',
+              addUser: 'Add User',
+              monitor: {
+                cpu: 'CPU LOAD',
+                ram: 'RAM USAGE',
+                gpu: 'GPU TEMP',
+              },
+              config: {
+                title: 'System Configuration',
+                globalLimit: 'Global Subscription Limit',
+                maxConn: 'MAX CONN',
+                limitDesc: 'Hard limit for concurrent WebSocket connections per node.',
+                maintenance: {
+                  label: 'Maintenance Mode',
+                  desc: 'Disables all non-admin access immediately.',
+                },
+                autoScale: {
+                  label: 'Auto-Scaling',
+                  desc: 'Spin up new containers when CPU > 80%.',
+                },
+                rabbitmq: 'RabbitMQ Queue Status',
+              },
               table: {
+                columns: {
+                  user: 'User ID / Name',
+                  plan: 'Plan Type',
+                  status: 'Status',
+                  lastLogin: 'Last Login',
+                  actions: 'Actions',
+                },
                 user: 'User',
                 role: 'Role',
                 status: 'Status',
@@ -131,7 +273,19 @@ i18n
                 admin: 'Admin',
                 userLabel: 'User',
                 active: 'Active',
+                suspended: 'Suspended',
+                plans: {
+                  enterprise: 'Enterprise',
+                  pro: 'Pro',
+                  starter: 'Starter',
+                },
               },
+            },
+            footer: {
+              rights: '© {{year}} IoT Nexus. All rights reserved.',
+              privacy: 'Privacy Policy',
+              terms: 'Terms of Service',
+              support: 'Support',
             },
           },
           services: {
@@ -346,16 +500,134 @@ i18n
             },
           },
           dashboard: {
+            common: {
+              searchPlaceholder: 'Cari...',
+              signOut: 'Keluar',
+              viewAll: 'Lihat Semua',
+              online: 'Online',
+              offline: 'Offline',
+              connected: 'Terhubung',
+              disconnected: 'Terputus',
+              status: 'Status Sistem: {{status}}',
+              moduleUnderConstruction: 'Modul Sedang Dibangun',
+              moduleDeveloping: 'Modul {{module}} saat ini sedang dikembangkan.',
+            },
+            nav: {
+              dashboard: 'Dashboard',
+            },
+            menu: {
+              overview: 'Ringkasan',
+              subscriptions: 'Langganan Saya',
+              api: 'Akses API',
+              billing: 'Tagihan',
+              settings: 'Pengaturan',
+              monitor: 'Monitor',
+              users: 'Pengguna',
+              services: 'Layanan',
+              logs: 'Log',
+              config: 'Konfigurasi',
+            },
             user: {
-              consoleLabel: 'Konsol',
-              welcome: 'Selamat datang kembali, {{name}}',
-              manageDesc: 'Kelola layanan aktif dan pengaturan Anda.',
+              consoleLabel: 'IoT Nexus',
+              welcome: 'Halo, {{name}}',
+              overviewSubtitle: 'Inilah yang terjadi dengan infrastruktur IoT Anda hari ini.',
               activeSubscriptions: 'Langganan Aktif',
+              apiUsage: 'Penggunaan API & Lalu Lintas',
+              quickActions: 'Tindakan Cepat',
+              storageUsed: 'Penyimpanan Terpakai',
+              totalRequests: 'Total Permintaan',
+              timeRange: {
+                last7Days: '7 Hari Terakhir',
+                last30Days: '30 Hari Terakhir',
+              },
+              toggles: {
+                whatsapp: {
+                  label: 'Notifikasi WhatsApp',
+                  desc: 'Terima peringatan via WhatsApp',
+                },
+                aiWeight: {
+                  label: 'Prediksi Berat AI',
+                  desc: 'Aktifkan algoritma prediktif',
+                },
+                autoScale: {
+                  label: 'Auto-Scaling',
+                  desc: 'Izinkan alokasi sumber daya dinamis',
+                },
+                debug: {
+                  label: 'Mode Debug',
+                  desc: 'Tampilkan log kesalahan detail',
+                },
+              },
+              manageDesc: 'Kelola layanan aktif dan pengaturan Anda.',
+              activeSubscriptions_legacy: 'Langganan Aktif',
               accountSupport: 'Akun & Dukungan',
               accountSettings: 'Pengaturan Akun',
               manageProfileBilling: 'Kelola profil dan penagihan',
               documentation: 'Dokumentasi',
               guidesApiReferences: 'Panduan dan referensi API',
+              views: {
+                subscriptions: {
+                  title: 'Langganan Saya',
+                  desc: 'Kelola layanan aktif dan detail paket Anda.',
+                  items: {
+                    poultry: 'Sistem Unggas Cerdas',
+                    cctv: 'Analisis CCTV AI',
+                    erp: 'ERP Perusahaan',
+                    maintenance: 'Pemeliharaan Prediktif',
+                  },
+                  manage: 'Kelola Layanan',
+                },
+                api: {
+                  title: 'Akses API',
+                  desc: 'Kelola kunci API dan token akses untuk aplikasi Anda.',
+                  prodKey: 'Kunci Produksi',
+                  copy: 'Salin',
+                  lastUsed: 'Terakhir digunakan: {{time}} • Dibuat pada {{date}}',
+                  rateLimit: {
+                    label: 'Pembatasan Laju',
+                    desc: 'Secara otomatis membatasi permintaan yang melebihi batas paket Anda.',
+                  },
+                },
+                billing: {
+                  title: 'Tagihan & Paket',
+                  desc: 'Lihat faktur dan kelola metode pembayaran Anda.',
+                  balance: 'Saldo Saat Ini',
+                  addFunds: 'Tambah Dana',
+                  currentPlan: 'Paket Saat Ini',
+                  upgrade: 'Tingkatkan Paket',
+                  proPlan: 'Paket Pro',
+                },
+                settings: {
+                  title: 'Pengaturan Akun',
+                  desc: 'Kelola profil dan preferensi Anda.',
+                  security: {
+                    title: 'Keamanan',
+                    '2fa': {
+                      label: 'Otentikasi Dua Faktor',
+                      desc: 'Tambahkan lapisan keamanan ekstra ke akun Anda.',
+                    },
+                    alerts: {
+                      label: 'Peringatan Login',
+                      desc: 'Dapatkan notifikasi percobaan login baru.',
+                    },
+                  },
+                  notifications: {
+                    title: 'Notifikasi',
+                    digest: {
+                      label: 'Ringkasan Email',
+                      desc: 'Terima ringkasan mingguan statistik IoT Anda.',
+                    },
+                    marketing: {
+                      label: 'Update Pemasaran',
+                      desc: 'Terima berita tentang fitur dan produk baru.',
+                    },
+                  },
+                },
+              },
+              charts: {
+                last7: '7 Hari Terakhir',
+                last30: '30 Hari Terakhir',
+              },
               cta: {
                 launchDashboard: 'Buka Dasbor',
                 openAnalytics: 'Buka Analitik',
@@ -364,7 +636,9 @@ i18n
             },
             admin: {
               portalLabel: 'Portal Admin',
+              headerTitle: 'Pusat Kontrol',
               systemOverview: 'Ikhtisar Sistem',
+              systemOverviewSubtitle: 'Pemantauan dan manajemen waktu nyata.',
               cards: {
                 activeUsers: 'Pengguna Aktif',
                 systemHealth: 'Kesehatan Sistem',
@@ -373,7 +647,35 @@ i18n
                 noActiveThreats: 'Tidak ada ancaman aktif',
               },
               userManagement: 'Manajemen Pengguna',
+              addUser: 'Tambah Pengguna',
+              monitor: {
+                cpu: 'BEBAN CPU',
+                ram: 'PENGGUNAAN RAM',
+                gpu: 'SUHU GPU',
+              },
+              config: {
+                title: 'Konfigurasi Sistem',
+                globalLimit: 'Batas Langganan Global',
+                maxConn: 'KONEKSI MAKS',
+                limitDesc: 'Batas keras untuk koneksi WebSocket bersamaan per node.',
+                maintenance: {
+                  label: 'Mode Pemeliharaan',
+                  desc: 'Nonaktifkan semua akses non-admin segera.',
+                },
+                autoScale: {
+                  label: 'Auto-Scaling',
+                  desc: 'Putar kontainer baru saat CPU > 80%.',
+                },
+                rabbitmq: 'Status Antrian RabbitMQ',
+              },
               table: {
+                columns: {
+                  user: 'ID Pengguna / Nama',
+                  plan: 'Jenis Paket',
+                  status: 'Status',
+                  lastLogin: 'Login Terakhir',
+                  actions: 'Aksi',
+                },
                 user: 'Pengguna',
                 role: 'Peran',
                 status: 'Status',
@@ -382,7 +684,19 @@ i18n
                 admin: 'Admin',
                 userLabel: 'Pengguna',
                 active: 'Aktif',
+                suspended: 'Ditangguhkan',
+                plans: {
+                  enterprise: 'Enterprise',
+                  pro: 'Pro',
+                  starter: 'Pemula',
+                },
               },
+            },
+            footer: {
+              rights: '© {{year}} IoT Nexus. Hak cipta dilindungi undang-undang.',
+              privacy: 'Kebijakan Privasi',
+              terms: 'Ketentuan Layanan',
+              support: 'Dukungan',
             },
           },
           services: {
