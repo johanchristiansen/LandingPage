@@ -1,5 +1,5 @@
 import React from 'react';
-import { Bell, Search, User } from 'lucide-react';
+import { Bell, Search, User, Menu } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 import { LanguageSwitcher } from '../../app/components/LanguageSwitcher';
 import { useTranslation } from 'react-i18next';
@@ -7,16 +7,25 @@ import { useTranslation } from 'react-i18next';
 interface HeaderProps {
   title?: string;
   children?: React.ReactNode;
+  onMenuClick?: () => void;
 }
 
-export const Header = ({ title, children }: HeaderProps) => {
+export const Header = ({ title, children, onMenuClick }: HeaderProps) => {
   const { user } = useAuth();
   const { t } = useTranslation();
 
   return (
-    <header className="sticky top-0 z-10 flex h-20 shrink-0 items-center justify-between border-b border-[#06b6d4]/10 bg-[#020617]/80 px-8 backdrop-blur-md">
+    <header className="sticky top-0 z-10 flex h-20 shrink-0 items-center justify-between border-b border-[#06b6d4]/10 bg-[#020617]/80 px-4 backdrop-blur-md md:px-8">
       <div className="flex items-center gap-4">
-        {children || <h1 className="text-xl font-bold tracking-tight text-white">{title}</h1>}
+        <button
+          onClick={onMenuClick}
+          className="rounded-lg p-2 text-slate-400 hover:bg-slate-800 hover:text-[#06b6d4] lg:hidden"
+        >
+          <Menu size={24} />
+        </button>
+        {children || (
+          <h1 className="text-lg font-bold tracking-tight text-white md:text-xl">{title}</h1>
+        )}
       </div>
 
       <div className="flex items-center gap-6">

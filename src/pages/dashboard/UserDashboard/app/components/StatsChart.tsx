@@ -15,8 +15,8 @@ const data = [
 export const StatsChart = ({ title }: { title: string }) => {
   const { t } = useTranslation();
   return (
-    <div className="flex h-full flex-col rounded-2xl border border-slate-700/50 bg-slate-800/40 p-6 backdrop-blur-md">
-      <div className="mb-6 flex items-center justify-between">
+    <div className="flex h-full flex-col rounded-2xl border border-slate-700/50 bg-slate-800/40 p-4 backdrop-blur-md md:p-6">
+      <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <h3 className="text-lg font-semibold text-slate-100">{title}</h3>
         <select className="rounded-lg border border-slate-700 bg-slate-900 px-2 py-1 text-xs text-slate-400 outline-none">
           <option>{t('dashboard.charts.last7')}</option>
